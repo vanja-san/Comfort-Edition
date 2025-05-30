@@ -1,0 +1,32 @@
+{
+  "name": "Comfort Edition",
+  "author": "vanja-san",
+  "description": "(WIP) A touch more comfy!",
+  "version": "1.0.0",
+
+  "github": {
+    "owner": "vanja-san",
+    "repo_name": "steam-comfort"
+  },
+  
+  "header_image": "https://i.imgur.com/image_here.png",
+  "splash_image": "https://i.imgur.com/image_here.png",
+  "tags": ["comfort", "steam", "wip"],
+  "Steam-WebKit": "webkit.css",
+  "UseDefaultPatches": true,
+
+  "Patches": [
+    {
+      "MatchRegexString": ".*",
+      "TargetJs": "webkit.js"
+    },
+    {
+      "MatchRegexString": "^Steam$",
+      "TargetCss": "base/header/header.css"
+    },
+    {
+      "MatchRegexString": "^Steam$",
+      "TargetJs": "base/header/header.js"
+    }
+  ]
+}

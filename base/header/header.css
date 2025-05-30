@@ -1,0 +1,138 @@
+._25lBLzuVeYAUG279up4xP8._1LYTHQzcI1u6tcxbbcc5V3,
+._25lBLzuVeYAUG279up4xP8._2cO0HdvLEGAdhosLekWsmo {
+  display: none !important;
+}
+
+/* Control Buttons */
+.title-area {
+  top: 8px;
+  right: 8px;
+  min-height: 24px;
+}
+.DesktopUI .title-area-icon,
+.friendsui-container .title-area-icon {
+  width: 32px;
+  height: 28px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+/* Top Header */
+._39oUCO1OuizVPwcnnv88no {
+  background: unset;
+  height: 42px;
+  box-shadow: none;
+}
+/* Logo Steam */
+.bSKGlAJG2UVWTsntEJY2v .GG9wVQz6PLlhGHlJyZh4E {
+  width: 28px;
+  height: 28px;
+}
+/* Hide Logo Text */
+.bSKGlAJG2UVWTsntEJY2v {
+  font-size: 0;
+}
+/* Hide Junk Menu */
+._1Ky59qmywxOUtNcI1cgmkX._3s0lkohH8wU2do0K1il28Y > div:nth-child(2),
+._1Ky59qmywxOUtNcI1cgmkX._3s0lkohH8wU2do0K1il28Y > div:nth-child(3),
+._1Ky59qmywxOUtNcI1cgmkX._3s0lkohH8wU2do0K1il28Y > div:nth-child(4),
+._1Ky59qmywxOUtNcI1cgmkX._3s0lkohH8wU2do0K1il28Y > div:nth-child(5) {
+  display: none;
+}
+/* Bottom Header */
+._3Z3ohQ8-1NKnCZkbS6fvy {
+  position: absolute !important;
+  top: 10.5px;
+  left: 48px;
+  padding: 0;
+}
+/* Right Side Buttons */
+._2Szzh5sKyGgnLUR870zbDE,
+._3yD46y5pd3zOGR7CzKs0mC {
+  height: 28px !important;
+  width: 28px !important;
+  padding: 0;
+  max-height: none;
+}
+._3cykd-VfN_xBxf3Qxriccm {
+  margin-right: 9px;
+}
+/* tiny profile button */
+._3yD46y5pd3zOGR7CzKs0mC {
+  border-radius: 2px;
+  padding-right: 8px;
+  font-size: 0 !important;
+}
+/* tiny profile button: Avatar */
+._3h-QRJGxnVOIExtHD1R0f2.avatar {
+  border-radius: 3px;
+  box-shadow: none;
+}
+._3yD46y5pd3zOGR7CzKs0mC ._3x51wbt5DYyWC8JKwQ51ir {
+  display: none;
+}
+._3yD46y5pd3zOGR7CzKs0mC.online {
+  padding: 0;
+  gap: 0;
+}
+/* tiny profile button: Status */
+._3xUpb5DWXPFNcHHIcv-9pe.avatarStatus.right {
+  top: 18px;
+  left: 18px;
+  width: 8px;
+  height: 8px;
+  border: 1px solid #fff;
+  border-radius: 100%;
+}
+/* Downloads Button */
+.ip-YZhijAMZcuRoXBGiye {
+  position: absolute;
+  background-color: rgba(103, 112, 123, 0.2);
+  top: 9.5px;
+  right: 253px;
+  border-radius: 2px;
+  gap: 0;
+  width: 28px;
+  max-width: none;
+  height: 28px;
+  padding: 0;
+}
+.ip-YZhijAMZcuRoXBGiye ._3wJnTtcTLEp0R7eQj_mK8Y {
+  font-size: 0px;
+}
+.ip-YZhijAMZcuRoXBGiye ._1KrJ3sFAqPBN9mfpaNTU5F {
+  margin: 0 auto;
+  margin-top: -1px;
+}
+._2VtAqT03BpBsVdmxwptn9D {
+  gap: 0;
+  width: 28px;
+  display: block;
+}
+._2_FomluqqgQ2Hx8ON3AVep ._1sCy-pm412Smb0wJx0W-4 {
+  font-size: 0;
+}
+._2VtAqT03BpBsVdmxwptn9D ._1KrJ3sFAqPBN9mfpaNTU5F {
+  width: 22px;
+  height: 22px;
+  box-shadow: none;
+  margin: 0 auto;
+}
+._24_AuLm54JVe1Zc0AApCDR {
+  border-radius: 2px;
+}
+._2VtAqT03BpBsVdmxwptn9D ._21vPQjHoo0uwud5lfCD_x- {
+  background: none;
+}
+._2_FomluqqgQ2Hx8ON3AVep {
+  position: absolute;
+  gap: 17px;
+  top: 10px;
+  right: 0;
+  left: 0px;
+  width: 28px;
+}
+/* Big Picture Button */
+._3LKQ3S_yqrebeNLF6aeiog ._34bQcTHo5QKzuujoEyU1tm {
+  top: auto;
+  right: auto;
+}
