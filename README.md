@@ -7,6 +7,7 @@ Install **Milennium**, extract the Comfort-Edition folder to `steam/steamui/skin
 
 
 # ToDo:
+- [x] Change Menu panel
 - [ ] Upgrade Tooltip menu
 - [ ] Add Options for toggle items
 - [ ] Change "News panel"
