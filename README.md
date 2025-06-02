@@ -21,6 +21,7 @@ Install **Milennium**, extract the Comfort-Edition folder to `steam/steamui/skin
 - [ ] Rework Library page (Already have an idea)
 - [ ] Change Store page (Maybe I won't be)
 - [ ] Change Tooltip menu
+- [ ] Do something with "Bottom panel"
 - [ ] Something to invent with a URL page
 - [ ] Add Options
 - [ ] Completely align all elements in the interface
