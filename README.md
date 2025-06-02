@@ -8,7 +8,7 @@ A touch more comfy! Theme is in standard Steam tones, but with a reworked appear
 > Development of theme is at a lazy pace!
 
 > [!tip]
-> Install [Milennium](https://steambrew.app/), extract Comfort-Edition folder to `.../Steam/steamui/skins`.
+> Install [Millennium](https://steambrew.app/), extract Comfort-Edition folder to `.../Steam/steamui/skins`.
 
 <details>
   <summary>Preview version (v0.1)</summary>
