@@ -1,7 +1,12 @@
-# Comfort-Edition (WIP)
-A touch more comfy!
+<h3>
+  Comfort Edition (WIP)
+</h3>
+A touch more comfy! Theme is in standard Steam tones, but with a reworked appearance.
+<hr>
 
-Install **Milennium**, extract the Comfort-Edition folder to `steam/steamui/skins`.
+> [!tip]
+> Install **Milennium**, extract Comfort-Edition folder to `.../Steam/steamui/skins`.
+
 <details>
   <summary>Preview version (v0.1)</summary>
   
