@@ -22,7 +22,7 @@ A touch more comfy! Theme is in standard Steam tones, but with a reworked appear
 # ToDo:
 - [x] Rework NavMenu
 - [x] Move Downloads on top
-- [ ] Rework News Panel (There is no idea yet)
+- [ ] Rework What New Panel (There is no idea yet)
 - [ ] Rework Library page (Already have an idea)
 - [ ] Change Store page (Maybe I won't be)
 - [ ] Change Tooltip menu
