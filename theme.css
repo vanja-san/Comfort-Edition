@@ -1,0 +1,25 @@
+/* theme.css */
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap");
+/* Core 
+@import url('core/base.css');
+@import url('core/variables.css');
+@import url('core/typography.css');
+@import url('core/utilities.css');*/
+
+/* Components */
+@import url('components/header/control-buttons.css');
+@import url('components/header/right-panel.css');
+@import url('components/header/titlebar.css');
+@import url('components/header/top-menu.css');
+@import url('components/sidebar/menu.css');
+
+/* Layouts 
+@import url('layouts/main-window.css');
+@import url('layouts/library.css'); */
+@import url('layouts/library/list-games.css');
+
+/* Features 
+@import url('features/custom-icons.css');*/
+
+/* Settings 
+@import url('settings/options.css');*/

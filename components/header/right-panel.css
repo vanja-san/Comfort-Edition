@@ -1,0 +1,99 @@
+/* Right Side Buttons */
+._2Szzh5sKyGgnLUR870zbDE,
+._3yD46y5pd3zOGR7CzKs0mC {
+  height: 28px !important;
+  width: 28px !important;
+  padding: 0;
+  max-height: none;
+}
+._3cykd-VfN_xBxf3Qxriccm {
+    margin: auto 0;
+    margin-right: 9px;
+    height: 41px;
+}
+.RtSv39ZoBOySnb8XQ5hJf._9YK5IY219Pm_F53DAxyYp,
+.RtSv39ZoBOySnb8XQ5hJf._3qhGkQ5qLVNQQ-J2-uPoHt,
+._5wILZhsLODVwGfcJ0hKmJ {
+  background-color: unset;
+}
+/* tiny profile button */
+._3yD46y5pd3zOGR7CzKs0mC {
+  border-radius: 2px;
+  padding-right: 8px;
+  font-size: 0 !important;
+}
+/* tiny profile button: Avatar */
+._3h-QRJGxnVOIExtHD1R0f2.avatar {
+  border-radius: 3px;
+  box-shadow: none;
+}
+._3yD46y5pd3zOGR7CzKs0mC ._3x51wbt5DYyWC8JKwQ51ir {
+  display: none;
+}
+._3yD46y5pd3zOGR7CzKs0mC.online {
+  padding: 0;
+  gap: 0;
+}
+/* tiny profile button: Status */
+._3xUpb5DWXPFNcHHIcv-9pe.avatarStatus.right {
+  top: 18px;
+  left: 18px;
+  width: 8px;
+  height: 8px;
+  border: 1px solid #fff;
+  border-radius: 100%;
+}
+._3yD46y5pd3zOGR7CzKs0mC.ingame {
+    padding: 0;
+}
+/* Big Picture Button */
+._3LKQ3S_yqrebeNLF6aeiog ._34bQcTHo5QKzuujoEyU1tm {
+  top: auto;
+  right: auto;
+}
+/* Downloads Button */
+.ip-YZhijAMZcuRoXBGiye {
+  position: absolute;
+  top: 5px;
+  right: 253px;
+  gap: unset;
+  width: 28px;
+  max-width: none;
+  height: 28px;
+  padding: 0;
+}
+.ip-YZhijAMZcuRoXBGiye ._3wJnTtcTLEp0R7eQj_mK8Y {
+  font-size: 0px;
+}
+.ip-YZhijAMZcuRoXBGiye ._1KrJ3sFAqPBN9mfpaNTU5F {
+  margin: 0 auto;
+  margin-top: -1px;
+}
+._2VtAqT03BpBsVdmxwptn9D {
+  gap: 0;
+  width: 28px;
+  display: block;
+}
+._2_FomluqqgQ2Hx8ON3AVep ._1sCy-pm412Smb0wJx0W-4 {
+  font-size: 0;
+}
+._2VtAqT03BpBsVdmxwptn9D ._1KrJ3sFAqPBN9mfpaNTU5F {
+  width: 22px;
+  height: 22px;
+  box-shadow: none;
+  margin: 0 auto;
+}
+._24_AuLm54JVe1Zc0AApCDR {
+  border-radius: 2px;
+}
+._2VtAqT03BpBsVdmxwptn9D ._21vPQjHoo0uwud5lfCD_x- {
+  background: none;
+}
+._2_FomluqqgQ2Hx8ON3AVep {
+  position: absolute;
+  gap: 17px;
+  top: 10px;
+  right: 0;
+  left: 0px;
+  width: 28px;
+}

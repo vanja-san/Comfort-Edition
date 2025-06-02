@@ -1,0 +1,13 @@
+/* Control Buttons */
+.title-area {
+  top: 5px;
+  right: 5px;
+  min-height: 24px;
+}
+.DesktopUI .title-area-icon,
+.friendsui-container .title-area-icon {
+  width: 32px;
+  height: 28px;
+  border-radius: 2px;
+  cursor: pointer;
+}
