@@ -11,14 +11,21 @@ A touch more comfy! Theme is in standard Steam tones, but with a reworked appear
 > Install [Millennium](https://steambrew.app/), extract Comfort-Edition folder to `.../Steam/steamui/skins`.
 
 <details>
-  <summary>Preview version (v0.1)</summary>
+  <summary>Screenshots Old version</summary>
+  
+  v0.1
   
 ![изображение](https://github.com/user-attachments/assets/bd44038a-5c43-4910-b8fb-1695ae2e0ae9)
 
+  v0.5
+  
+![изображение](https://github.com/user-attachments/assets/6d094730-51e6-42f6-8fc6-ee4d5747e0cd)
+
 </details>
 
-# Preview version (v0.5)
-![изображение](https://github.com/user-attachments/assets/6d094730-51e6-42f6-8fc6-ee4d5747e0cd)
+# Preview version (v0.6)
+![изображение](https://github.com/user-attachments/assets/ac4e5a5f-89c8-44da-9a4e-0837e8ac341e)
+
 
 
 
@@ -29,7 +36,7 @@ A touch more comfy! Theme is in standard Steam tones, but with a reworked appear
   - [ ] Rework What New Panel (There is no idea yet)
 - [ ] Change Store page (Maybe I won't be)
 - [ ] Change Tooltip menu
-- [ ] Do something with "Bottom panel"
+- [x] Do something with "Bottom panel"
 - [ ] Something to invent with a URL page
 - [ ] Add Options
 - [ ] Completely align all elements in the interface
