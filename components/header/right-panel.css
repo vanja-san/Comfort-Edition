@@ -7,19 +7,22 @@
   max-height: none;
 }
 ._3cykd-VfN_xBxf3Qxriccm {
-    margin: auto 0;
-    margin-right: 9px;
-    height: 41px;
+  margin: auto 0;
+  margin-right: 9px;
+  height: 41px;
 }
 .RtSv39ZoBOySnb8XQ5hJf._9YK5IY219Pm_F53DAxyYp,
 .RtSv39ZoBOySnb8XQ5hJf._3qhGkQ5qLVNQQ-J2-uPoHt,
-._5wILZhsLODVwGfcJ0hKmJ {
+._5wILZhsLODVwGfcJ0hKmJ, ._5wILZhsLODVwGfcJ0hKmJ:hover,
+.RtSv39ZoBOySnb8XQ5hJf._9YK5IY219Pm_F53DAxyYp:not(._1QQWjaXmb1eTHZpeIhQA_5):hover,
+.RtSv39ZoBOySnb8XQ5hJf._3qhGkQ5qLVNQQ-J2-uPoHt:not(._1QQWjaXmb1eTHZpeIhQA_5):hover,
+._3LKQ3S_yqrebeNLF6aeiog:hover {
   background-color: unset;
 }
 /* tiny profile button */
 ._3yD46y5pd3zOGR7CzKs0mC {
   border-radius: 2px;
-  padding-right: 8px;
+  padding-right: unset;
   font-size: 0 !important;
 }
 /* tiny profile button: Avatar */
@@ -44,7 +47,7 @@
   border-radius: 100%;
 }
 ._3yD46y5pd3zOGR7CzKs0mC.ingame {
-    padding: 0;
+  padding: 0;
 }
 /* Big Picture Button */
 ._3LKQ3S_yqrebeNLF6aeiog ._34bQcTHo5QKzuujoEyU1tm {
@@ -96,4 +99,22 @@
   right: 0;
   left: 0px;
   width: 28px;
+}
+/* No Connection Text*/
+.ip-YZhijAMZcuRoXBGiye ._1sCy-pm412Smb0wJx0W-4 {
+  font-size: 0;
+}
+.ip-YZhijAMZcuRoXBGiye ._1sCy-pm412Smb0wJx0W-4:before {
+  content: "\e648";
+  font-family: "Material Symbols Rounded";
+  font-size: 12pt;
+  font-variation-settings: "wght" 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+}
+.ip-YZhijAMZcuRoXBGiye:hover ._1sCy-pm412Smb0wJx0W-4:before {
+  color: #ddd;
 }
