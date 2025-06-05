@@ -24,7 +24,10 @@ v0.5
 # Preview version (v0.6)
 ![изображение](https://github.com/user-attachments/assets/ac4e5a5f-89c8-44da-9a4e-0837e8ac341e)
 
-<video controls src="20250605-2337-05.7471286-1.mp4" title="Title"></video>
+# (WIP) Toggle Left GamesList
+https://github.com/user-attachments/assets/e964de43-1f01-4321-8670-e2717dbf4c48
+
+
 
 # ToDo:
 - [x] Rework NavMenu
