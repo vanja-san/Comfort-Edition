@@ -1,24 +1,31 @@
-// Динамическая загрузка скриптов
-function loadScript(src) {
+// Загрузчик с обработкой ошибок
+async function loadScript(src) {
   return new Promise((resolve, reject) => {
+    const fullPath = `/skins/Comfort-Edition/${src}`;
+    console.log(`[Millennium] Загрузка: ${fullPath}`);
+
     const script = document.createElement('script');
-    script.src = chrome.runtime.getURL(src);
+    script.src = fullPath;
     script.onload = resolve;
     script.onerror = reject;
     document.head.appendChild(script);
   });
 }
 
-// Загрузка всех скриптов
 async function initTheme() {
   try {
-    await loadScript('scripts/utils.js');
-    await loadScript('scripts/features/custom-tooltips.js');
-    console.log('Theme scripts loaded');
+    await loadScript('scripts/features/library/toggle-left-list.js');
+    console.log('[Millennium] Hider Panel инициализирован');
   } catch (error) {
-    console.error('Script loading error:', error);
+    console.error('[Millennium] Ошибка загрузки:', error);
   }
 }
 
-// Запуск инициализации
-document.addEventListener('DOMContentLoaded', initTheme);
+// Асинхронный запуск
+(function() {
+  if (document.readyState === 'complete') {
+    setTimeout(initTheme, 100);
+  } else {
+    window.addEventListener('load', () => setTimeout(initTheme, 100));
+  }
+})();

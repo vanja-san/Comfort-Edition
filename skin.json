@@ -3,15 +3,15 @@
   "Patches": [
     {
       "MatchRegexString": ".*",
-      "TargetCss": "./theme.css",
-      "TargetJs": "./scripts/main.js"
+      "TargetCss": "theme.css",
+      "TargetJs": "scripts/main.js"
     }
   ],
 
   "name": "Comfort Edition",
   "author": "vanja-san",
   "description": "(WIP) A touch more comfy!",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "github": {
     "owner": "vanja-san",
     "repo_name": "Comfort-Edition"
