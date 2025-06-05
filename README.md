@@ -26,7 +26,6 @@ v0.5
 
 <video controls src="20250605-2337-05.7471286-1.mp4" title="Title"></video>
 
-
 # ToDo:
 - [x] Rework NavMenu
 - [x] Move Downloads on top
