@@ -28,7 +28,6 @@ v0.5
 
 
 
-
 # ToDo:
 - [x] Rework NavMenu
 - [x] Move Downloads on top
