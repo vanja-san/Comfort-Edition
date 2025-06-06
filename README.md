@@ -34,6 +34,9 @@ https://github.com/user-attachments/assets/e964de43-1f01-4321-8670-e2717dbf4c48
 - [x] Move Downloads on top
 - [ ] Rework Library page (Already have an idea)
   - [ ] Rework What New Panel (There is no idea yet)
+  - [ ] Fix up the games list toggle button
+    - [ ] Rethink placement
+    - [ ] Rethink look
 - [ ] Change Store page (Maybe I won't be)
 - [ ] Change Tooltip menu
 - [x] Do something with "Bottom panel"
