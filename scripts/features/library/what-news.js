@@ -36,7 +36,7 @@ function initToggleButton() {
     
     // Функция для обновления высоты контейнера
     const updateHeight = () => {
-        if (animationContainer.style.height !== '0px') {
+        if (!isCollapsed) {
             animationContainer.style.height = `${wrapper.offsetHeight}px`;
         }
     };
@@ -44,29 +44,36 @@ function initToggleButton() {
     // Установка начального состояния
     if (isCollapsed) {
         animationContainer.style.height = '0px';
+        // ИКОНКА ДЛЯ СВЕРНУТОГО СОСТОЯНИЯ (предлагает развернуть)
         toggleBtn.innerHTML = '<span class="material-symbols-rounded">top_panel_open</span>';
         toggleBtn.classList.add('collapsed');
     } else {
-        // Отложенная инициализация высоты
-        setTimeout(() => {
-            animationContainer.style.height = `${wrapper.offsetHeight}px`;
-        }, 50);
+        // ИКОНКА ДЛЯ РАЗВЕРНУТОГО СОСТОЯНИЯ (предлагает свернуть)
         toggleBtn.innerHTML = '<span class="material-symbols-rounded">top_panel_close</span>';
+        
+        // Двойное обновление для корректного расчета высоты
+        setTimeout(() => {
+            animationContainer.style.height = 'auto';
+            const height = wrapper.offsetHeight;
+            animationContainer.style.height = `${height}px`;
+        }, 100);
     }
     
     // Обработчик клика
     toggleBtn.addEventListener('click', () => {
-        const currentlyCollapsed = toggleBtn.classList.contains('collapsed');
+        const isCollapsedNow = toggleBtn.classList.contains('collapsed');
         
-        if (currentlyCollapsed) {
-            // Разворачивание с анимацией
+        if (isCollapsedNow) {
+            // Разворачивание
             animationContainer.style.height = `${wrapper.offsetHeight}px`;
+            // Меняем на иконку "свернуть"
             toggleBtn.innerHTML = '<span class="material-symbols-rounded">top_panel_close</span>';
             toggleBtn.classList.remove('collapsed');
             localStorage.setItem(storageKey, 'false');
         } else {
             // Сворачивание
             animationContainer.style.height = '0px';
+            // Меняем на иконку "развернуть"
             toggleBtn.innerHTML = '<span class="material-symbols-rounded">top_panel_open</span>';
             toggleBtn.classList.add('collapsed');
             localStorage.setItem(storageKey, 'true');
@@ -84,18 +91,18 @@ function initToggleButton() {
     resizeObserver.observe(wrapper);
     
     // Обновление при изменении контента
-    const mutationObserver = new MutationObserver(updateHeight);
+    const mutationObserver = new MutationObserver(() => {
+        if (!toggleBtn.classList.contains('collapsed')) {
+            animationContainer.style.height = 'auto';
+            const newHeight = wrapper.offsetHeight;
+            animationContainer.style.height = `${newHeight}px`;
+        }
+    });
     mutationObserver.observe(wrapper, {
         childList: true,
         subtree: true,
         characterData: true
     });
-    
-    // Обновление при изменении видимости
-    const visibilityObserver = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting) updateHeight();
-    }, { threshold: 0.1 });
-    visibilityObserver.observe(targetBlock);
 }
 
 // Инициализация с двойной проверкой
@@ -114,7 +121,21 @@ const observer = new MutationObserver(safeInit);
 observer.observe(document.body, { childList: true, subtree: true });
 
 // Перехват SPA-переходов
-const handleSPANavigation = () => setTimeout(safeInit, 300);
+const handleSPANavigation = () => setTimeout(safeInit, 500);
 window.addEventListener('popstate', handleSPANavigation);
+
+// Патчинг для SPA
+history.pushState = ((f) => function pushState() {
+    const ret = f.apply(this, arguments);
+    window.dispatchEvent(new Event('pushstate'));
+    return ret;
+})(history.pushState);
+
+history.replaceState = ((f) => function replaceState() {
+    const ret = f.apply(this, arguments);
+    window.dispatchEvent(new Event('replacestate'));
+    return ret;
+})(history.replaceState);
+
 window.addEventListener('pushstate', handleSPANavigation);
 window.addEventListener('replacestate', handleSPANavigation);

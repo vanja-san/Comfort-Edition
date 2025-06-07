@@ -14,6 +14,7 @@
     MAIN: "div._3x1HklzyDs4TEjACrRO2tB",
     HEADER_BUTTONS: "._3Sb2o_mQ30IDRh0C72QUUu",
     TARGET_BLOCK: "._276E6ijBpjMA2_iTxNhhjc._2g5K_hJWc7jVo81zuejhk2",
+    BORDER_ELEMENT: "._1rDh5rXSFZJOqCa4UpnI4z",
   };
 
   const STYLES = `
@@ -72,6 +73,10 @@
     body.steam-panel-initializing ${SELECTORS.LEFT_PANEL},
     body.steam-panel-initializing ${SELECTORS.CONTENT} {
       transition: none !important;
+    }
+
+    ._1rDh5rXSFZJOqCa4UpnI4z {
+      transition: border-radius 0.3s ease !important;
     }
   `;
 
@@ -153,6 +158,17 @@
           targetBlock.classList.add("hidden-block");
         } else {
           targetBlock.classList.remove("hidden-block");
+        }
+      }
+
+      // Обработка скругления для целевого элемента
+      const borderElement = document.querySelector(SELECTORS.BORDER_ELEMENT);
+      if (borderElement) {
+        if (collapsed) {
+          borderElement.style.borderTopLeftRadius = "6px";
+          borderElement.style.transition = "border-radius 0.3s ease";
+        } else {
+          borderElement.style.borderTopLeftRadius = "";
         }
       }
     };

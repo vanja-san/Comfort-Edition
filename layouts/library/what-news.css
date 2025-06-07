@@ -32,10 +32,6 @@
   transition: all 0.2s ease;
 }
 
-.custom-news-icon:hover {
-  color: #fff;
-}
-
 .custom-news-icon.collapsed {
   background: unset;
 }
@@ -44,4 +40,12 @@
 .header-animation-container {
   overflow: hidden !important;
   transition: height 0.3s ease-in-out !important;
+}
+
+.custom-news-icon .material-symbols-rounded {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.custom-news-icon:hover .material-symbols-rounded {
+  color: #fff;
 }
