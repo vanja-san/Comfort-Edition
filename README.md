@@ -37,15 +37,16 @@ https://github.com/user-attachments/assets/f0e456d3-4cb3-4085-a761-9e0108525e78
 - [x] Rework NavMenu
 - [x] Move Downloads on top
 - [ ] Rework Library page (Already have an idea)
-  - [ ] Rework What New Panel (There is no idea yet)
-  - [ ] Fix up the games list toggle button
-    - [ ] Rethink placement
-    - [ ] Rethink look
+  - [ ] ~~Rework What New Panel (There is no idea yet)~~
+  - [x] Fix up the games list toggle button
+    - [ ] Rethink placement (Maybe)
+    - [x] Rethink look
 - [ ] Change Store page (Maybe I won't be)
 - [ ] Change Tooltip menu
 - [x] Do something with "Bottom panel"
+  - [ ] Rethink look
 - [ ] Something to invent with a URL page
-- [ ] Add Options
+- [ ] Add Options (Maybe)
 - [ ] Completely align all elements in the interface
 - [ ] Making a code better (I have very bad knowledge)
 - [ ] Add Control Settings
