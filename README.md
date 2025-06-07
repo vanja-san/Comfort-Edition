@@ -35,9 +35,9 @@ https://github.com/user-attachments/assets/f0e456d3-4cb3-4085-a761-9e0108525e78
 
 # ToDo:
 - [x] Rework NavMenu
-- [x] Move Downloads on top
+- [x] ~~Move Downloads on top~~ (I changed my mind)
 - [x] Rework Library page (Already have an idea)
-  - [ ] ~~Rework What New Panel (There is no idea yet)~~
+  - [ ] ~~Rework What New Panel (There is no idea yet)~~ (I changed my mind)
   - [x] Fix up the games list toggle button
     - [ ] Rethink placement (Maybe)
     - [x] Rethink look
