@@ -16,10 +16,7 @@ A touch more comfy! Theme is in standard Steam tones, but with a reworked appear
 (v0.1)
 ![v0.1](https://github.com/user-attachments/assets/bd44038a-5c43-4910-b8fb-1695ae2e0ae9)
 
-(v0.5)
-![v0.5](https://github.com/user-attachments/assets/6d094730-51e6-42f6-8fc6-ee4d5747e0cd)
-
-(v0.6)
+(v0.5 - v0.6)
 ![изображение](https://github.com/user-attachments/assets/ac4e5a5f-89c8-44da-9a4e-0837e8ac341e)
 
 # (WIP) Toggle Left GamesList
