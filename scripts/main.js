@@ -2,7 +2,6 @@
 async function loadScript(src) {
   return new Promise((resolve, reject) => {
     const fullPath = `/skins/Comfort-Edition/${src}`;
-    console.log(`[Millennium] Загрузка: ${fullPath}`);
 
     const script = document.createElement('script');
     script.src = fullPath;
@@ -14,8 +13,8 @@ async function loadScript(src) {
 
 async function initTheme() {
   try {
-    await loadScript('scripts/features/library/toggle-left-list.js');
-    console.log('[Millennium] Hider Panel инициализирован');
+    await loadScript('scripts/features/library/games-list.js');
+    await loadScript('scripts/features/library/what-news.js');
   } catch (error) {
     console.error('[Millennium] Ошибка загрузки:', error);
   }

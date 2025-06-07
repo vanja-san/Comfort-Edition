@@ -38,72 +38,32 @@
       transition: none !important;
     }
     
-    .panel-toggle {
-      display: inline-block;
-      width: 40px;
-      height: 20px;
-      margin-left: 10px;
+    .panel-list-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      top: 1.5px;
+      left: 8px;
       cursor: pointer;
       z-index: 1000;
       position: relative;
-      background-color: #4d4d4d;
-      border-radius: 10px;
-      vertical-align: middle;
-      transition: background-color 0.2s ease;
-    }
-
-    .panel-toggle .toggle-handle {
-      position: absolute;
-      top: 2px;
-      width: 16px;
-      height: 16px;
-      background-color: #ffffff;
-      border-radius: 50%;
+      background: unset;
+      color: #bfcbd4;
+      border: none;
       transition: all 0.2s ease;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+      font-size: 0;
     }
 
-    /* Свернутое состояние (панель скрыта) - бегунок слева */
-    .panel-toggle.collapsed {
-      background-color: #4d4d4d;
+    .panel-list-icon:hover {
+      color: #ffffff;
     }
 
-    .panel-toggle.collapsed .toggle-handle {
-      left: 2px;
+    .panel-list-icon.collapsed {
+      background: unset;
     }
 
-    /* Развернутое состояние (панель видна) - бегунок справа */
-    .panel-toggle:not(.collapsed) {
-      background-color: #1a9fff;
-    }
-
-    .panel-toggle:not(.collapsed) .toggle-handle {
-      left: 22px;
-    }
-
-    /* Эффекты при наведении */
-    .panel-toggle:hover {
-      background-color: #666;
-    }
-
-    .panel-toggle:not(.collapsed):hover {
-      background-color: #008ae6;
-    }
-
-    .panel-toggle:active .toggle-handle {
-      transform: scale(0.95);
-    }
-
-    .panel-toggle:focus {
-      outline: 2px solid #1a9fff;
-      outline-offset: 2px;
-    }
-
-    .panel-toggle {
-      margin-top: -2px; /* Точная подгонка по вертикали */
-      margin-right: 8px; /* Отступ от соседних элементов */
-    }
-    
     .hidden-block {
       display: none !important;
     }
@@ -150,10 +110,11 @@
   };
 
   const createToggleButton = () => {
-    const button = document.createElement("div");
-    button.className = "panel-toggle";
+    const button = document.createElement("button");
+    button.className = "panel-list-icon";
     button.setAttribute("aria-label", "Toggle sidebar");
-    button.innerHTML = '<div class="toggle-handle"></div>';
+    // Начальная иконка
+    button.innerHTML = '<span class="material-symbols-rounded">left_panel_close</span>';
     return button;
   };
 
@@ -179,6 +140,13 @@
 
       button.classList.toggle("collapsed", collapsed);
       localStorage.setItem(STATE_KEY, String(collapsed));
+
+      // Изменяем иконку в зависимости от состояния
+      if (collapsed) {
+        button.innerHTML = '<span class="material-symbols-rounded">left_panel_open</span>';
+      } else {
+        button.innerHTML = '<span class="material-symbols-rounded">left_panel_close</span>';
+      }
 
       if (targetBlock) {
         if (collapsed) {
