@@ -5,99 +5,85 @@ function initToggleButton() {
     const targetBlock = document.querySelector('._17uEBe5Ri8TMsnfELvs8-N');
     if (!container || !targetBlock) return;
     
-    let wrapper = targetBlock.parentElement;
+    const wrapper = targetBlock.parentElement;
     if (!wrapper) return;
     
     // Создаем контейнер для анимации
     const animationContainer = document.createElement('div');
     animationContainer.className = 'header-animation-container';
-    wrapper.parentNode.insertBefore(animationContainer, wrapper);
-    animationContainer.appendChild(wrapper);
+    wrapper.before(animationContainer);
+    animationContainer.append(wrapper);
     
     // Добавляем CSS для плавной анимации
-    const css = `
-        .header-animation-container {
-            overflow: hidden;
-            transition: height 0.3s ease;
-        }
-    `;
-    const style = document.createElement('style');
-    style.textContent = css;
-    document.head.appendChild(style);
+    document.head.insertAdjacentHTML('beforeend', `
+        <style>
+            .header-animation-container {
+                overflow: hidden;
+                transition: height 0.3s ease;
+            }
+        </style>
+    `);
     
     const storageKey = 'newsPanelCollapsedState';
     const isCollapsed = localStorage.getItem(storageKey) === 'true';
-    
     const toggleBtn = document.createElement('button');
+    
     toggleBtn.className = 'custom-news-icon';
     toggleBtn.title = 'Свернуть/развернуть новости';
-    container.style.position = 'relative';
-    container.appendChild(toggleBtn);
+    toggleBtn.innerHTML = isCollapsed ? 
+        '<span class="material-symbols-rounded">top_panel_open</span>' : 
+        '<span class="material-symbols-rounded">top_panel_close</span>';
     
-    // Функция для обновления высоты контейнера
+    container.style.position = 'relative';
+    container.append(toggleBtn);
+    
+    if (isCollapsed) {
+        toggleBtn.classList.add('collapsed');
+        animationContainer.style.height = '0';
+    } else {
+        // Инициализируем высоту после рендера
+        requestAnimationFrame(() => {
+            animationContainer.style.height = `${wrapper.offsetHeight}px`;
+        });
+    }
+    
+    // Общая функция для обновления высоты
     const updateHeight = () => {
-        if (!isCollapsed) {
+        if (!toggleBtn.classList.contains('collapsed')) {
             animationContainer.style.height = `${wrapper.offsetHeight}px`;
         }
     };
     
-    // Установка начального состояния
-    if (isCollapsed) {
-        animationContainer.style.height = '0px';
-        // ИКОНКА ДЛЯ СВЕРНУТОГО СОСТОЯНИЯ (предлагает развернуть)
-        toggleBtn.innerHTML = '<span class="material-symbols-rounded">top_panel_open</span>';
-        toggleBtn.classList.add('collapsed');
-    } else {
-        // ИКОНКА ДЛЯ РАЗВЕРНУТОГО СОСТОЯНИЯ (предлагает свернуть)
-        toggleBtn.innerHTML = '<span class="material-symbols-rounded">top_panel_close</span>';
-        
-        // Двойное обновление для корректного расчета высоты
-        setTimeout(() => {
-            animationContainer.style.height = 'auto';
-            const height = wrapper.offsetHeight;
-            animationContainer.style.height = `${height}px`;
-        }, 100);
-    }
-    
-    // Обработчик клика
+    // Обработчик переключения
     toggleBtn.addEventListener('click', () => {
-        const isCollapsedNow = toggleBtn.classList.contains('collapsed');
+        const wasCollapsed = toggleBtn.classList.toggle('collapsed');
         
-        if (isCollapsedNow) {
-            // Разворачивание
-            animationContainer.style.height = `${wrapper.offsetHeight}px`;
-            // Меняем на иконку "свернуть"
-            toggleBtn.innerHTML = '<span class="material-symbols-rounded">top_panel_close</span>';
-            toggleBtn.classList.remove('collapsed');
-            localStorage.setItem(storageKey, 'false');
-        } else {
-            // Сворачивание
-            animationContainer.style.height = '0px';
-            // Меняем на иконку "развернуть"
+        if (wasCollapsed) {
+            animationContainer.style.height = '0';
             toggleBtn.innerHTML = '<span class="material-symbols-rounded">top_panel_open</span>';
-            toggleBtn.classList.add('collapsed');
-            localStorage.setItem(storageKey, 'true');
+        } else {
+            toggleBtn.innerHTML = '<span class="material-symbols-rounded">top_panel_close</span>';
+            animationContainer.style.height = `${wrapper.offsetHeight}px`;
         }
+        
+        localStorage.setItem(storageKey, wasCollapsed.toString());
     });
     
-    // Резиновый Observer
-    const resizeObserver = new ResizeObserver(() => {
+    // Общий обработчик изменений
+    const handleChanges = () => {
         if (!toggleBtn.classList.contains('collapsed')) {
             animationContainer.style.height = 'auto';
-            const newHeight = wrapper.offsetHeight;
-            animationContainer.style.height = `${newHeight}px`;
+            requestAnimationFrame(() => {
+                animationContainer.style.height = `${wrapper.offsetHeight}px`;
+            });
         }
-    });
+    };
+    
+    // Наблюдатели
+    const resizeObserver = new ResizeObserver(handleChanges);
     resizeObserver.observe(wrapper);
     
-    // Обновление при изменении контента
-    const mutationObserver = new MutationObserver(() => {
-        if (!toggleBtn.classList.contains('collapsed')) {
-            animationContainer.style.height = 'auto';
-            const newHeight = wrapper.offsetHeight;
-            animationContainer.style.height = `${newHeight}px`;
-        }
-    });
+    const mutationObserver = new MutationObserver(handleChanges);
     mutationObserver.observe(wrapper, {
         childList: true,
         subtree: true,
@@ -105,7 +91,7 @@ function initToggleButton() {
     });
 }
 
-// Инициализация с двойной проверкой
+// Инициализация с защитой от дублирования
 function safeInit() {
     if (!document.querySelector('.custom-news-icon') && 
         document.querySelector('._17uEBe5Ri8TMsnfELvs8-N')) {
@@ -113,29 +99,34 @@ function safeInit() {
     }
 }
 
+// Управление SPA-навигацией
+const handleNavigation = () => requestAnimationFrame(safeInit);
+
+// Основная инициализация
 window.addEventListener('load', () => {
-    setTimeout(safeInit, 1000);
+    requestAnimationFrame(safeInit);
 });
 
-const observer = new MutationObserver(safeInit);
-observer.observe(document.body, { childList: true, subtree: true });
+// Глобальные наблюдатели
+new MutationObserver(safeInit).observe(document.body, { 
+    childList: true, 
+    subtree: true 
+});
 
-// Перехват SPA-переходов
-const handleSPANavigation = () => setTimeout(safeInit, 500);
-window.addEventListener('popstate', handleSPANavigation);
+// SPA обработчики
+['popstate', 'pushstate', 'replacestate'].forEach(event => {
+    window.addEventListener(event, handleNavigation);
+});
 
-// Патчинг для SPA
-history.pushState = ((f) => function pushState() {
-    const ret = f.apply(this, arguments);
-    window.dispatchEvent(new Event('pushstate'));
-    return ret;
-})(history.pushState);
+// Патчинг History API
+const patchHistoryMethod = (method) => {
+    const original = history[method];
+    history[method] = function() {
+        const result = original.apply(this, arguments);
+        window.dispatchEvent(new Event(method.toLowerCase()));
+        return result;
+    };
+};
 
-history.replaceState = ((f) => function replaceState() {
-    const ret = f.apply(this, arguments);
-    window.dispatchEvent(new Event('replacestate'));
-    return ret;
-})(history.replaceState);
-
-window.addEventListener('pushstate', handleSPANavigation);
-window.addEventListener('replacestate', handleSPANavigation);
+patchHistoryMethod('pushState');
+patchHistoryMethod('replaceState');
