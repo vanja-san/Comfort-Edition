@@ -11,13 +11,13 @@
   "name": "Comfort Edition",
   "author": "vanja-san",
   "description": "(WIP) A touch more comfy!",
-  "version": "0.7.3",
+  "version": "0.7.5",
   "github": {
     "owner": "vanja-san",
     "repo_name": "Comfort-Edition"
   },
   "header_image": "https://i.imgur.com/image_here.png",
   "splash_image": "https://i.imgur.com/image_here.png",
-  "tags": ["comfort", "steam", "editions", "wip"],
+  "tags": ["comfort", "steam", "edition", "wip"],
   "UseDefaultPatches": true
 }

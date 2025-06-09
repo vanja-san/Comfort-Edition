@@ -67,12 +67,36 @@
 ._2_FomluqqgQ2Hx8ON3AVep ._1sCy-pm412Smb0wJx0W-4 {
   font-size: 0;
 }
+._1KrJ3sFAqPBN9mfpaNTU5F > svg {
+  display: none !important;
+}
 ._2VtAqT03BpBsVdmxwptn9D ._1KrJ3sFAqPBN9mfpaNTU5F {
-  width: 22px;
-  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 24px;
+  height: 24px;
   box-shadow: none;
   margin: 0 auto;
   cursor: pointer;
+}
+._1KrJ3sFAqPBN9mfpaNTU5F::before {
+  content: "download";
+  font-family: "Material Symbols Rounded";
+  font-size: 24px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: #b0bac7;
+}
+
+._1KrJ3sFAqPBN9mfpaNTU5F:hover::before {
+  color: #ffffff;
 }
 ._24_AuLm54JVe1Zc0AApCDR {
   border-radius: 2px;
@@ -82,12 +106,11 @@
 }
 ._2_FomluqqgQ2Hx8ON3AVep {
   position: relative;
-  gap: 1px;
+  gap: unset;
   width: 28px;
 }
 ._2_FomluqqgQ2Hx8ON3AVep .wi0pDywRgOCxhG7OqQNaA {
   height: 4px;
-  width: 22px;
   margin: 0 auto;
 }
 /* No Connection Text*/
