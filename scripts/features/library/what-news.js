@@ -8,18 +8,68 @@ function initToggleButton() {
     const wrapper = targetBlock.parentElement;
     if (!wrapper) return;
     
+    // Добавляем класс-обертку для анимации
+    wrapper.classList.add('_17uEBe5Ri8TMsnfELvs8-N-wrapper');
+    
     // Создаем контейнер для анимации
     const animationContainer = document.createElement('div');
     animationContainer.className = 'header-animation-container';
     wrapper.before(animationContainer);
     animationContainer.append(wrapper);
     
-    // Добавляем CSS для плавной анимации
+    // Добавляем ВСЕ необходимые стили
     document.head.insertAdjacentHTML('beforeend', `
         <style>
+            /* Добавляем стили для родительского контейнера */
+            ._17uEBe5Ri8TMsnfELvs8-N-wrapper {
+              overflow: hidden !important;
+              transition: height 0.3s ease-in-out !important;
+            }
+            
+            /* Стили для анимации скрытия/раскрытия */
+            ._17uEBe5Ri8TMsnfELvs8-N {
+              transition: transform 0.3s ease-in-out !important;
+            }
+            
+            /* Стиль для скрытого состояния */
+            ._17uEBe5Ri8TMsnfELvs8-N.hidden {
+              transform: translateY(-100%) !important;
+            }
+            
+            .custom-news-icon {
+              position: absolute;
+              background: unset;
+              top: 10px;
+              left: 48px;
+              z-index: 1001;
+              color: #8b929a;
+              border: none;
+              width: 24px;
+              height: 24px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              cursor: pointer;
+              font-size: 0;
+              transition: all 0.2s ease;
+            }
+            
+            .custom-news-icon.collapsed {
+              background: unset;
+            }
+            
+            /* Контейнер для анимации */
             .header-animation-container {
-                overflow: hidden;
-                transition: height 0.3s ease;
+              overflow: hidden !important;
+              transition: height 0.3s ease-in-out !important;
+            }
+            
+            .custom-news-icon .material-symbols-rounded {
+              transition: transform 0.3s ease, opacity 0.3s ease;
+            }
+            
+            .custom-news-icon:hover .material-symbols-rounded {
+              color: #fff;
             }
         </style>
     `);

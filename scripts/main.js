@@ -13,7 +13,7 @@ async function loadScript(src) {
 
 async function initTheme() {
   try {
-    await loadScript('scripts/features/library/games-list.js');
+    await loadScript('scripts/features/library/list-games.js');
     await loadScript('scripts/features/library/what-news.js');
   } catch (error) {
     console.error('[Millennium] Ошибка загрузки:', error);
