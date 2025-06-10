@@ -7,6 +7,7 @@
 @import url('core/utilities.css');*/
 /* Some */
 @import url('some/removed.css');
+@import url('some/urlbar.css');
 /* Components */
 @import url('components/header/control-buttons.css');
 @import url('components/header/right-panel.css');
@@ -18,4 +19,3 @@
 /* Layouts */
 @import url('layouts/library/list-games.css');
 @import url('layouts/library/others.css');
-@import url('layouts/shop/urlbar.css');
