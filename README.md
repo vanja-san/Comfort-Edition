@@ -9,7 +9,7 @@
 > Install [Millennium](https://steambrew.app/), extract Comfort-Edition folder to `.../Steam/steamui/skins`.
 
 <details>
-  <summary>Preview Old Versions</summary>
+  <summary>Preview Archive</summary>
 
 (v0.1)
 ![v0.1](https://github.com/user-attachments/assets/bd44038a-5c43-4910-b8fb-1695ae2e0ae9)
