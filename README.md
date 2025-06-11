@@ -22,12 +22,15 @@ https://github.com/user-attachments/assets/e964de43-1f01-4321-8670-e2717dbf4c48
 
 </details>
 
-(v0.7)
-![v0.7](https://github.com/user-attachments/assets/f5c8597d-1dd4-45a5-9bd0-c7748aeb6140)
+# (v0.7)
+![v0.7.7](https://github.com/user-attachments/assets/128f4b88-c6cd-4766-8049-30d3ed28b46c)
 
 
-# (Done) Toggle Panels
-https://github.com/user-attachments/assets/f0e456d3-4cb3-4085-a761-9e0108525e78
+
+# Some Features
+https://github.com/user-attachments/assets/33726148-19fb-44c0-9bb9-e0c4d5317975
+
+
 
 
 
