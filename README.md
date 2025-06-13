@@ -38,7 +38,7 @@ https://github.com/user-attachments/assets/33726148-19fb-44c0-9bb9-e0c4d5317975
 - [x] Rework Navigation Menu
 - [x] Relocate Downloads section ~~(Priority: Top position)~~ *(Note: Changed my mind)*
 - [x] Rework Library Page *(Note: Concept planned)*
-  - [ ] ~~Redesign "What’s New" Panel (Note: No solution yet; Changed approach)~~ (I changed my mind)
+  - [ ] ~~Redesign "What’s New" Panel (Note: No solution yet; Changed approach)~~ *(Note: Changed my mind)*
   - [x] Fix Toggle Buttons
     - [x] Re-evaluate placement *(Optional)*
     - [x] Redesign visual appearance
