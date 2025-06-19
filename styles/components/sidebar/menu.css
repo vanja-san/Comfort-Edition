@@ -56,6 +56,22 @@
 ._2D64jIEK7wpUR_NlObDW76 > div:hover {
   background-color: transparent;
 } */
+._2D64jIEK7wpUR_NlObDW76 > div:nth-of-type(1) {
+  order: 3;
+}
+._2D64jIEK7wpUR_NlObDW76 > div:nth-of-type(2) {
+  order: 2;
+}
+._2D64jIEK7wpUR_NlObDW76 > div:nth-of-type(3) {
+  order: 4;
+}
+._2D64jIEK7wpUR_NlObDW76 > div:nth-of-type(4) {
+  order: 1;
+}
+._2D64jIEK7wpUR_NlObDW76 > div:nth-of-type(5) {
+  order: 5;
+}
+
 ._2D64jIEK7wpUR_NlObDW76 > div:nth-of-type(1) > ._19axKcqYRuaJ8vdYKYmtTQ:before,
 ._2D64jIEK7wpUR_NlObDW76 > div:nth-of-type(2) > ._19axKcqYRuaJ8vdYKYmtTQ:before,
 ._2D64jIEK7wpUR_NlObDW76 > div:nth-of-type(3) > ._19axKcqYRuaJ8vdYKYmtTQ:before,
@@ -69,7 +85,7 @@
 ._2D64jIEK7wpUR_NlObDW76
   > div:nth-of-type(1)
   > ._19axKcqYRuaJ8vdYKYmtTQ:before {
-  content: "\e54c";
+  content: "local_mall";
   font-family: "Material Symbols Rounded";
   font-size: 18pt;
   font-variation-settings: "wght" 300;
@@ -88,7 +104,7 @@
 ._2D64jIEK7wpUR_NlObDW76
   > div:nth-of-type(2)
   > ._19axKcqYRuaJ8vdYKYmtTQ:before {
-  content: "\ea28";
+  content: "sports_esports";
   font-family: "Material Symbols Rounded";
   font-size: 18pt;
   font-variation-settings: "wght" 300;
@@ -107,9 +123,9 @@
 ._2D64jIEK7wpUR_NlObDW76
   > div:nth-of-type(3)
   > ._19axKcqYRuaJ8vdYKYmtTQ:before {
-  content: "\e9f4";
+  content: "explore";
   font-family: "Material Symbols Rounded";
-  font-size: 16pt;
+  font-size: 18pt;
   font-variation-settings: "wght" 300;
   display: flex;
   align-items: center;
@@ -126,9 +142,9 @@
 ._2D64jIEK7wpUR_NlObDW76
   > div:nth-of-type(4)
   > ._19axKcqYRuaJ8vdYKYmtTQ:before {
-  content: "\e7fd";
+  content: "account_box";
   font-family: "Material Symbols Rounded";
-  font-size: 20pt;
+  font-size: 18pt;
   font-variation-settings: "wght" 300;
   display: flex;
   align-items: center;
@@ -145,7 +161,7 @@
 ._2D64jIEK7wpUR_NlObDW76
   > div:nth-of-type(5)
   > ._19axKcqYRuaJ8vdYKYmtTQ:before {
-  content: "\eb8e";
+  content: "terminal";
   font-family: "Material Symbols Rounded";
   font-size: 18pt;
   font-variation-settings: "wght" 300;

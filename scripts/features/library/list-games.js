@@ -1,4 +1,4 @@
-// scripts/features/library/games-list.js
+// scripts/features/library/list-games.js
 (() => {
   "use strict";
 
@@ -16,7 +16,7 @@
     MAIN: "div._3x1HklzyDs4TEjACrRO2tB",
     HEADER_BUTTONS: "._3Sb2o_mQ30IDRh0C72QUUu",
     TARGET_BLOCK: "._276E6ijBpjMA2_iTxNhhjc._2g5K_hJWc7jVo81zuejhk2",
-    BORDER_ELEMENT: "._1rDh5rXSFZJOqCa4UpnI4z"
+    BORDER_ELEMENT: "._1rDh5rXSFZJOqCa4UpnI4z",
   };
 
   const STYLES = `
