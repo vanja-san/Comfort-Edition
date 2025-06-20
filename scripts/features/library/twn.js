@@ -1,190 +1,227 @@
-// scripts/features/library/twn.js - Toggle What News
-function initToggleButton() {
-  if (document.querySelector(".custom-news-icon")) return;
+// Toggle What's New panel in Steam Library
+(() => {
+  const CONFIG = {
+    selectors: {
+      container: '._3Sb2o_mQ30IDRh0C72QUUu',
+      targetBlock: '._17uEBe5Ri8TMsnfELvs8-N'
+    },
+    storageKey: 'newsPanelCollapsedState',
+    timing: {
+      transition: 300,
+      easing: 'cubic-bezier(0.4, 0, 0.2, 1)'
+    }
+  };
 
-  const container = document.querySelector("._3Sb2o_mQ30IDRh0C72QUUu");
-  const targetBlock = document.querySelector("._17uEBe5Ri8TMsnfELvs8-N");
-  if (!container || !targetBlock) return;
+  let domObserver = null;
+  let resizeObserver = null;
+  let mutationObserver = null;
+  let checkTimeout = null;
+  let cleanupTimeout = null;
 
-  const wrapper = targetBlock.parentElement;
-  if (!wrapper) return;
+  function injectStyles() {
+    if (document.getElementById('twn-toggle-styles')) return;
+    const style = document.createElement('style');
+    style.id = 'twn-toggle-styles';
+    style.textContent = `
+      ._17uEBe5Ri8TMsnfELvs8-N-wrapper {
+        overflow: hidden !important;
+        transition: height ${CONFIG.timing.transition}ms ${CONFIG.timing.easing} !important;
+      }
+      ._17uEBe5Ri8TMsnfELvs8-N {
+        transition: transform ${CONFIG.timing.transition}ms ${CONFIG.timing.easing} !important;
+      }
+      ._17uEBe5Ri8TMsnfELvs8-N.hidden {
+        transform: translateY(-100%) !important;
+      }
+      .custom-news-icon {
+        position: absolute;
+        background: unset;
+        top: 10px;
+        left: 48px;
+        z-index: 1001;
+        color: #8b929a;
+        border: none;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 0;
+      }
+      .header-animation-container {
+        overflow: hidden !important;
+        transition: height ${CONFIG.timing.transition}ms ${CONFIG.timing.easing} !important;
+      }
+      .custom-news-icon:hover {
+        color: #fff;
+      }
+    `;
+    document.head.appendChild(style);
+  }
 
-  // Добавляем класс-обертку для анимации
-  wrapper.classList.add("_17uEBe5Ri8TMsnfELvs8-N-wrapper");
+  function cleanup() {
+    domObserver?.disconnect();
+    resizeObserver?.disconnect();
+    mutationObserver?.disconnect();
+    
+    domObserver = null;
+    resizeObserver = null;
+    mutationObserver = null;
+    
+    clearTimeout(checkTimeout);
+    clearTimeout(cleanupTimeout);
+    
+    document.getElementById('twn-toggle-styles')?.remove();
+    document.querySelector('.custom-news-icon')?.remove();
 
-  // Создаем контейнер для анимации
-  const animationContainer = document.createElement("div");
-  animationContainer.className = "header-animation-container";
-  wrapper.before(animationContainer);
-  animationContainer.append(wrapper);
+    // Remove history patches
+    if (window.originalPushState) {
+      history.pushState = window.originalPushState;
+      delete window.originalPushState;
+    }
+    if (window.originalReplaceState) {
+      history.replaceState = window.originalReplaceState;
+      delete window.originalReplaceState;
+    }
+  }
 
-  // Добавляем ВСЕ необходимые стили
-  document.head.insertAdjacentHTML(
-    "beforeend",
-    `
-        <style>
-            /* Добавляем стили для родительского контейнера */
-            ._17uEBe5Ri8TMsnfELvs8-N-wrapper {
-              overflow: hidden !important;
-              transition: height 0.3s ease-in-out !important;
-            }
-            
-            /* Стили для анимации скрытия/раскрытия */
-            ._17uEBe5Ri8TMsnfELvs8-N {
-              transition: transform 0.3s ease-in-out !important;
-            }
-            
-            /* Стиль для скрытого состояния */
-            ._17uEBe5Ri8TMsnfELvs8-N.hidden {
-              transform: translateY(-100%) !important;
-            }
-            
-            .custom-news-icon {
-              position: absolute;
-              background: unset;
-              top: 10px;
-              left: 48px;
-              z-index: 1001;
-              color: #8b929a;
-              border: none;
-              width: 24px;
-              height: 24px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              cursor: pointer;
-              font-size: 0;
-              transition: all 0.2s ease;
-            }
-            
-            .custom-news-icon.collapsed {
-              background: unset;
-            }
-            
-            /* Контейнер для анимации */
-            .header-animation-container {
-              overflow: hidden !important;
-              transition: height 0.3s ease-in-out !important;
-            }
-            
-            .custom-news-icon .material-symbols-rounded {
-              transition: transform 0.3s ease, opacity 0.3s ease;
-            }
-            
-            .custom-news-icon:hover .material-symbols-rounded {
-              color: #fff;
-            }
-        </style>
-    `
-  );
+  async function setupToggle() {
+    injectStyles();
+    const container = document.querySelector(CONFIG.selectors.container);
+    const targetBlock = document.querySelector(CONFIG.selectors.targetBlock);
+    
+    if (!container) return;
 
-  const storageKey = "newsPanelCollapsedState";
-  const isCollapsed = localStorage.getItem(storageKey) === "true";
-  const toggleBtn = document.createElement("button");
+    if (!targetBlock) {
+      checkTimeout = setTimeout(() => {
+        if (!document.querySelector(CONFIG.selectors.targetBlock)) {
+          console.warn('[Comfort Edition] Панель "What\'s New" (Что нового) не загружена или отсутствует на странице.');
+        }
+      }, 2000);
+      return;
+    }
 
-  toggleBtn.className = "custom-news-icon";
-  toggleBtn.setAttribute("aria-label", "Toggle What News");
-  toggleBtn.innerHTML = isCollapsed
-    ? '<span class="material-symbols-rounded">top_panel_open</span>'
-    : '<span class="material-symbols-rounded">top_panel_close</span>';
+    // Prevent duplicates
+    if (document.querySelector('.custom-news-icon')) return;
 
-  container.style.position = "relative";
-  container.append(toggleBtn);
+    const wrapper = targetBlock.parentElement;
+    if (!wrapper) return;
 
-  if (isCollapsed) {
-    toggleBtn.classList.add("collapsed");
-    animationContainer.style.height = "0";
-  } else {
-    // Инициализируем высоту после рендера
-    requestAnimationFrame(() => {
-      animationContainer.style.height = `${wrapper.offsetHeight}px`;
+    wrapper.classList.add('_17uEBe5Ri8TMsnfELvs8-N-wrapper');
+    const animationContainer = document.createElement('div');
+    animationContainer.className = 'header-animation-container';
+    wrapper.before(animationContainer);
+    animationContainer.append(wrapper);
+
+    const toggleBtn = document.createElement('button');
+    toggleBtn.className = 'custom-news-icon';
+    toggleBtn.setAttribute('aria-label', 'Toggle What News');
+    container.style.position = 'relative';
+
+    let isCollapsed = localStorage.getItem(CONFIG.storageKey) === 'true';
+    
+    function updateState(collapsed, animate = true) {
+      if (!animate) {
+        animationContainer.style.transition = 'none';
+        wrapper.style.transition = 'none';
+        
+        requestAnimationFrame(() => {
+          animationContainer.style.transition = '';
+          wrapper.style.transition = '';
+        });
+      }
+
+      const icon = collapsed ? 'top_panel_open' : 'top_panel_close';
+      const height = collapsed ? '0' : `${wrapper.offsetHeight}px`;
+
+      requestAnimationFrame(() => {
+        toggleBtn.innerHTML = `<span class="material-symbols-rounded">${icon}</span>`;
+        toggleBtn.classList.toggle('collapsed', collapsed);
+        animationContainer.style.height = height;
+      });
+
+      localStorage.setItem(CONFIG.storageKey, collapsed);
+    }
+
+    // Initial state
+    updateState(isCollapsed, false);
+    container.append(toggleBtn);
+
+    // Click handler
+    toggleBtn.addEventListener('click', () => {
+      isCollapsed = !toggleBtn.classList.contains('collapsed');
+      updateState(isCollapsed, true);
+    });
+
+    // Height updates
+    const updateHeight = () => {
+      if (!toggleBtn.classList.contains('collapsed')) {
+        requestAnimationFrame(() => {
+          animationContainer.style.height = `${wrapper.offsetHeight}px`;
+        });
+      }
+    };
+
+    resizeObserver?.disconnect();
+    resizeObserver = new ResizeObserver(updateHeight);
+    resizeObserver.observe(wrapper);
+    
+    mutationObserver?.disconnect();
+    mutationObserver = new MutationObserver(() => {
+      requestAnimationFrame(updateHeight);
+    });
+    mutationObserver.observe(wrapper, { 
+      childList: true, 
+      subtree: true, 
+      characterData: true 
     });
   }
 
-  // Общая функция для обновления высоты
-  const updateHeight = () => {
-    if (!toggleBtn.classList.contains("collapsed")) {
-      animationContainer.style.height = `${wrapper.offsetHeight}px`;
-    }
-  };
+  function init() {
+    cleanup();
 
-  // Обработчик переключения
-  toggleBtn.addEventListener("click", () => {
-    const wasCollapsed = toggleBtn.classList.toggle("collapsed");
-
-    if (wasCollapsed) {
-      animationContainer.style.height = "0";
-      toggleBtn.innerHTML =
-        '<span class="material-symbols-rounded">top_panel_open</span>';
-    } else {
-      toggleBtn.innerHTML =
-        '<span class="material-symbols-rounded">top_panel_close</span>';
-      animationContainer.style.height = `${wrapper.offsetHeight}px`;
+    // Store original history methods
+    if (!window.originalPushState) {
+      window.originalPushState = history.pushState;
+      window.originalReplaceState = history.replaceState;
     }
 
-    localStorage.setItem(storageKey, wasCollapsed.toString());
-  });
+    // Patch history
+    ['pushState', 'replaceState'].forEach(method => {
+      const original = history[method];
+      history[method] = function () {
+        const result = original.apply(this, arguments);
+        window.dispatchEvent(new Event(method.toLowerCase()));
+        return result;
+      };
+    });
 
-  // Общий обработчик изменений
-  const handleChanges = () => {
-    if (!toggleBtn.classList.contains("collapsed")) {
-      animationContainer.style.height = "auto";
-      requestAnimationFrame(() => {
-        animationContainer.style.height = `${wrapper.offsetHeight}px`;
-      });
-    }
-  };
+    const safeInit = () => {
+      clearTimeout(cleanupTimeout);
+      cleanupTimeout = setTimeout(setupToggle, 100);
+    };
 
-  // Наблюдатели
-  const resizeObserver = new ResizeObserver(handleChanges);
-  resizeObserver.observe(wrapper);
+    // Event listeners
+    window.addEventListener('load', safeInit, { passive: true });
+    ['popstate', 'pushstate', 'replacestate'].forEach(evt => 
+      window.addEventListener(evt, safeInit, { passive: true })
+    );
 
-  const mutationObserver = new MutationObserver(handleChanges);
-  mutationObserver.observe(wrapper, {
-    childList: true,
-    subtree: true,
-    characterData: true,
-  });
-}
+    // DOM observer
+    domObserver = new MutationObserver(safeInit);
+    domObserver.observe(document.body, { 
+      childList: true, 
+      subtree: true 
+    });
 
-// Инициализация с защитой от дублирования
-function safeInit() {
-  if (
-    !document.querySelector(".custom-news-icon") &&
-    document.querySelector("._17uEBe5Ri8TMsnfELvs8-N")
-  ) {
-    initToggleButton();
+    // Initial setup
+    setupToggle();
   }
-}
 
-// Управление SPA-навигацией
-const handleNavigation = () => requestAnimationFrame(safeInit);
+  // Cleanup on unload
+  window.addEventListener('unload', cleanup, { passive: true });
 
-// Основная инициализация
-window.addEventListener("load", () => {
-  requestAnimationFrame(safeInit);
-});
-
-// Глобальные наблюдатели
-new MutationObserver(safeInit).observe(document.body, {
-  childList: true,
-  subtree: true,
-});
-
-// SPA обработчики
-["popstate", "pushstate", "replacestate"].forEach((event) => {
-  window.addEventListener(event, handleNavigation);
-});
-
-// Патчинг History API
-const patchHistoryMethod = (method) => {
-  const original = history[method];
-  history[method] = function () {
-    const result = original.apply(this, arguments);
-    window.dispatchEvent(new Event(method.toLowerCase()));
-    return result;
-  };
-};
-
-patchHistoryMethod("pushState");
-patchHistoryMethod("replaceState");
+  // Start
+  init();
+})();

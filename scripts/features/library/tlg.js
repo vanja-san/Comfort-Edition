@@ -1,244 +1,228 @@
-// scripts/features/library/tlg.js - Toggle List Games
+// Toggle List Games - Sidebar toggle for Steam Library
 (() => {
-  "use strict";
-
-  // Конфигурация в виде констант
-  const CLASS_NAMES = {
-    COLLAPSED: "custom-collapsed",
-    EXPANDED: "custom-expanded-content",
-    NO_TRANSITION: "no-transition",
-    INITIALIZING: "steam-panel-initializing"
+  const CONFIG = {
+    collapsed: 'custom-collapsed',
+    expanded: 'custom-expanded-content',
+    noTransition: 'no-transition',
+    initializing: 'steam-panel-initializing',
+    hiddenBlock: 'hidden-block',
+    selectors: {
+      leftPanel: 'div._9sPoVBFyE_vE87mnZJ5aB',
+      content: 'div._1ijTaXJJA5YWl_fW2IxcaT',
+      main: 'div._3x1HklzyDs4TEjACrRO2tB',
+      headerButtons: '._3Sb2o_mQ30IDRh0C72QUUu',
+      targetBlock: '._276E6ijBpjMA2_iTxNhhjc._2g5K_hJWc7jVo81zuejhk2',
+      borderElement: '._1rDh5rXSFZJOqCa4UpnI4z'
+    },
+    stateKey: 'steamPanelCollapsed',
+    timing: {
+      transition: 300,
+      easing: 'cubic-bezier(0.4, 0, 0.2, 1)'
+    }
   };
 
-  const SELECTORS = {
-    LEFT_PANEL: "div._9sPoVBFyE_vE87mnZJ5aB",
-    CONTENT: "div._1ijTaXJJA5YWl_fW2IxcaT",
-    MAIN: "div._3x1HklzyDs4TEjACrRO2tB",
-    HEADER_BUTTONS: "._3Sb2o_mQ30IDRh0C72QUUu",
-    TARGET_BLOCK: "._276E6ijBpjMA2_iTxNhhjc._2g5K_hJWc7jVo81zuejhk2",
-    BORDER_ELEMENT: "._1rDh5rXSFZJOqCa4UpnI4z",
-  };
-
-  const STYLES = `
-    .${CLASS_NAMES.COLLAPSED} {
-      width: 0 !important;
-      min-width: 0 !important;
-      opacity: 0 !important;
-      pointer-events: none !important;
-    }
-    
-    .${CLASS_NAMES.EXPANDED} {
-      width: 100% !important;
-    }
-    
-    ${SELECTORS.LEFT_PANEL}, ${SELECTORS.CONTENT} {
-      transition: all 0.3s ease-out !important;
-    }
-    
-    .${CLASS_NAMES.NO_TRANSITION} {
-      transition: none !important;
-    }
-    
-    .panel-list-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 24px;
-      height: 24px;
-      cursor: pointer;
-      position: absolute;
-      background: unset;
-      color: #8b929a;
-      border: none;
-      transition: color 0.2s ease;
-      font-size: 0;
-      z-index: 1000;
-      top: 10px;
-      left: 21px;
-    }
-
-    .panel-list-icon:hover {
-      color: #ffffff;
-    }
-
-    .hidden-block {
-      display: none !important;
-    }
-    
-    body.${CLASS_NAMES.INITIALIZING} ${SELECTORS.LEFT_PANEL},
-    body.${CLASS_NAMES.INITIALIZING} ${SELECTORS.CONTENT} {
-      transition: none !important;
-    }
-
-    ._1rDh5rXSFZJOqCa4UpnI4z {
-      transition: border-radius 0.3s ease !important;
-    }
-  `;
-
-  const STATE_KEY = "steamPanelCollapsed";
-  const MAX_ATTEMPTS = 15;
-  const RETRY_DELAY = 200;
-
-  const log = (message, isError = false) => {
-    console[isError ? "error" : "log"](`[Millennium] ${message}`);
-  };
-
-  // Глобальные ссылки
-  let styleElement = null;
   let observer = null;
-  let currentToggleButton = null;
+  let focusHandler = null;
+  let cleanupTimeout = null;
+  let initTimeout = null;
 
-  // Инициализация стилей
-  const initStyles = () => {
-    if (!styleElement) {
-      styleElement = Object.assign(document.createElement("style"), { textContent: STYLES });
-      document.head.append(styleElement);
-    }
-  };
+  function injectStyles() {
+    if (document.getElementById('tlg-toggle-styles')) return;
+    const style = document.createElement('style');
+    style.id = 'tlg-toggle-styles';
+    style.textContent = `
+      .${CONFIG.collapsed} {
+        width: 0 !important;
+        min-width: 0 !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        transition: all ${CONFIG.timing.transition}ms ${CONFIG.timing.easing} !important;
+      }
+      .${CONFIG.expanded} {
+        width: 100% !important;
+        transition: all ${CONFIG.timing.transition}ms ${CONFIG.timing.easing} !important;
+      }
+      .${CONFIG.noTransition}, .${CONFIG.noTransition} * {
+        transition: none !important;
+      }
+      .panel-list-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+        position: absolute;
+        background: unset;
+        color: #8b929a;
+        border: none;
+        font-size: 0;
+        z-index: 1000;
+        top: 10px;
+        left: 21px;
+      }
+      .panel-list-icon:hover {
+        color: #fff;
+      }
+      .${CONFIG.hiddenBlock} {
+        display: none !important;
+      }
+      body.${CONFIG.initializing} ${CONFIG.selectors.leftPanel},
+      body.${CONFIG.initializing} ${CONFIG.selectors.content} {
+        transition: none !important;
+      }
+      ${CONFIG.selectors.borderElement} {
+        transition: border-radius ${CONFIG.timing.transition}ms ${CONFIG.timing.easing} !important;
+      }
+      ${CONFIG.selectors.leftPanel}, ${CONFIG.selectors.content} {
+        transition: all ${CONFIG.timing.transition}ms ${CONFIG.timing.easing} !important;
+      }
+    `;
+    document.head.appendChild(style);
+  }
 
-  // Ожидание элемента с ретраями
-  const waitForElement = (selector) => {
+  function waitForElement(selector, maxTries = 15, delay = 200) {
     return new Promise((resolve, reject) => {
-      let attempts = 0;
-      
-      const checkElement = () => {
-        const element = document.querySelector(selector);
-        if (element) return resolve(element);
-        
-        if (++attempts > MAX_ATTEMPTS) {
-          return reject(new Error(`Element not found: ${selector}`));
+      const el = document.querySelector(selector);
+      if (el) return resolve(el);
+
+      let tries = 0;
+      const interval = setInterval(() => {
+        const el = document.querySelector(selector);
+        if (el) {
+          clearInterval(interval);
+          resolve(el);
+        } else if (++tries >= maxTries) {
+          clearInterval(interval);
+          reject(`Element not found: ${selector}`);
         }
-        
-        setTimeout(checkElement, RETRY_DELAY);
-      };
-      
-      checkElement();
+      }, delay);
     });
-  };
+  }
 
-  // Создание кнопки переключения
-  const createToggleButton = () => {
-    const button = document.createElement("button");
-    button.className = "panel-list-icon";
-    button.setAttribute("aria-label", "Toggle sidebar");
-    return button;
-  };
-
-  // Обновление UI при изменении состояния
-  const updateUIState = ({ leftPanel, content, main, targetBlock, borderElement }, isCollapsed) => {
-    // Панели и контент
-    leftPanel?.classList.toggle(CLASS_NAMES.COLLAPSED, isCollapsed);
-    content?.classList.toggle(CLASS_NAMES.EXPANDED, isCollapsed);
-    
-    // Главный контейнер
-    if (main) {
-      main.style.justifyContent = isCollapsed ? "center" : "flex-start";
-    }
-    
-    // Целевой блок
-    targetBlock?.classList.toggle("hidden-block", isCollapsed);
-    
-    // Скругление углов
-    if (borderElement) {
-      borderElement.style.borderTopLeftRadius = isCollapsed ? "6px" : "";
-    }
-    
-    // Сохранение состояния
-    localStorage.setItem(STATE_KEY, String(isCollapsed));
-    
-    return isCollapsed ? 
-      '<span class="material-symbols-rounded">left_panel_open</span>' : 
-      '<span class="material-symbols-rounded">left_panel_close</span>';
-  };
-
-  // Инициализация переключателя
-  const initToggleButton = (elements) => {
-    const isCollapsed = localStorage.getItem(STATE_KEY) === "true";
-    
-    // Временное отключение переходов
-    elements.leftPanel.classList.add(CLASS_NAMES.NO_TRANSITION);
-    elements.content.classList.add(CLASS_NAMES.NO_TRANSITION);
-    
-    // Начальное состояние
-    currentToggleButton.innerHTML = updateUIState(elements, isCollapsed);
-    currentToggleButton.classList.toggle("collapsed", isCollapsed);
-    
-    // Восстановление переходов
-    setTimeout(() => {
-      elements.leftPanel.classList.remove(CLASS_NAMES.NO_TRANSITION);
-      elements.content.classList.remove(CLASS_NAMES.NO_TRANSITION);
-    }, 50);
-    
-    // Обработчик клика
-    currentToggleButton.addEventListener("click", () => {
-      const newState = !elements.leftPanel.classList.contains(CLASS_NAMES.COLLAPSED);
-      currentToggleButton.innerHTML = updateUIState(elements, newState);
-      currentToggleButton.classList.toggle("collapsed", newState);
-    });
-  };
-
-  // Основная инициализация
-  const initializePanel = async () => {
-    try {
-      log("Initializing panel hider");
-      initStyles();
-      
-      document.body.classList.add(CLASS_NAMES.INITIALIZING);
-      
-      // Ожидаем необходимые элементы
-      const elements = {
-        leftPanel: await waitForElement(SELECTORS.LEFT_PANEL),
-        content: await waitForElement(SELECTORS.CONTENT),
-        main: await waitForElement(SELECTORS.MAIN),
-        headerButtons: await waitForElement(SELECTORS.HEADER_BUTTONS),
-        targetBlock: await waitForElement(SELECTORS.TARGET_BLOCK).catch(() => null),
-        borderElement: await waitForElement(SELECTORS.BORDER_ELEMENT).catch(() => null)
-      };
-      
-      // Удаляем старую кнопку если есть
-      currentToggleButton?.remove();
-      
-      // Создаем и размещаем новую кнопку
-      currentToggleButton = createToggleButton();
-      elements.headerButtons.prepend(currentToggleButton);
-      
-      // Инициализируем функционал кнопки
-      initToggleButton(elements);
-      log("Panel hider initialized");
-      
-      // Убираем класс инициализации
-      setTimeout(() => {
-        document.body.classList.remove(CLASS_NAMES.INITIALIZING);
-      }, 100);
-    } catch (error) {
-      log(`Initialization failed: ${error.message}`, true);
-    }
-  };
-
-  // Наблюдатель за изменениями DOM
-  const setupMutationObserver = () => {
+  function cleanup() {
     observer?.disconnect();
+    observer = null;
     
-    observer = new MutationObserver((mutations) => {
-      const shouldReinitialize = mutations.some(mutation => 
-        [...mutation.addedNodes].some(node =>
-          node.nodeType === Node.ELEMENT_NODE &&
-          (node.matches(SELECTORS.HEADER_BUTTONS) || 
-           node.querySelector(SELECTORS.HEADER_BUTTONS))
-        )
-      );
-      
-      if (shouldReinitialize) initializePanel();
+    if (focusHandler) {
+      window.removeEventListener('focus', focusHandler);
+      focusHandler = null;
+    }
+
+    clearTimeout(cleanupTimeout);
+    clearTimeout(initTimeout);
+    
+    const style = document.getElementById('tlg-toggle-styles');
+    style?.remove();
+  }
+
+  async function setupToggle() {
+    try {
+      injectStyles();
+      document.body.classList.add(CONFIG.initializing);
+
+      const [
+        leftPanel, content, main, headerButtons
+      ] = await Promise.all([
+        waitForElement(CONFIG.selectors.leftPanel),
+        waitForElement(CONFIG.selectors.content),
+        waitForElement(CONFIG.selectors.main),
+        waitForElement(CONFIG.selectors.headerButtons)
+      ]);
+
+      const targetBlock = document.querySelector(CONFIG.selectors.targetBlock);
+      const borderElement = document.querySelector(CONFIG.selectors.borderElement);
+
+      // Remove old button if present
+      document.querySelector('.panel-list-icon')?.remove();
+
+      // Create button
+      const btn = document.createElement('button');
+      btn.className = 'panel-list-icon';
+      btn.setAttribute('aria-label', 'Toggle sidebar');
+      headerButtons.prepend(btn);
+
+      // State
+      let isCollapsed = localStorage.getItem(CONFIG.stateKey) === 'true';
+
+      function setState(collapsed, animate = true) {
+        if (!animate) {
+          leftPanel.classList.add(CONFIG.noTransition);
+          content.classList.add(CONFIG.noTransition);
+          requestAnimationFrame(() => {
+            leftPanel.classList.remove(CONFIG.noTransition);
+            content.classList.remove(CONFIG.noTransition);
+          });
+        }
+
+        // Cache DOM lookups
+        const icon = collapsed ? 'left_panel_open' : 'left_panel_close';
+        const justifyContent = collapsed ? 'center' : 'flex-start';
+        const borderRadius = collapsed ? '6px' : '';
+
+        requestAnimationFrame(() => {
+          leftPanel.classList.toggle(CONFIG.collapsed, collapsed);
+          content.classList.toggle(CONFIG.expanded, collapsed);
+          main.style.justifyContent = justifyContent;
+          targetBlock?.classList.toggle(CONFIG.hiddenBlock, collapsed);
+          if (borderElement) {
+            borderElement.style.borderTopLeftRadius = borderRadius;
+          }
+          btn.innerHTML = `<span class="material-symbols-rounded">${icon}</span>`;
+          btn.classList.toggle('collapsed', collapsed);
+        });
+
+        localStorage.setItem(CONFIG.stateKey, collapsed);
+      }
+
+      // Initial state without animation
+      setState(isCollapsed, false);
+
+      // Click handler with animation
+      const clickHandler = () => {
+        isCollapsed = !leftPanel.classList.contains(CONFIG.collapsed);
+        setState(isCollapsed, true);
+      };
+
+      btn.addEventListener('click', clickHandler);
+
+      cleanupTimeout = setTimeout(() => {
+        document.body.classList.remove(CONFIG.initializing);
+      }, CONFIG.timing.transition);
+
+    } catch (e) {
+      console.error('[Comfort Edition] Ошибка инициализации:', e);
+    }
+  }
+
+  function init() {
+    cleanup();
+
+    observer = new MutationObserver(mutations => {
+      if (mutations.some(m => Array.from(m.addedNodes).some(n =>
+        n.nodeType === 1 && (n.matches?.(CONFIG.selectors.headerButtons) || n.querySelector?.(CONFIG.selectors.headerButtons))
+      ))) {
+        setupToggle();
+      }
     });
     
-    observer.observe(document.body, { childList: true, subtree: true });
-  };
+    observer.observe(document.body, { 
+      childList: true, 
+      subtree: true 
+    });
 
-  // Инициализация модуля
-  initStyles();
-  initializePanel();
-  setupMutationObserver();
-  
-  // Повторная инициализация при фокусировке окна
-  window.addEventListener("focus", initializePanel);
+    focusHandler = () => {
+      clearTimeout(initTimeout);
+      initTimeout = setTimeout(setupToggle, 100);
+    };
+    
+    window.addEventListener('focus', focusHandler, { passive: true });
+    setupToggle();
+  }
+
+  // Cleanup on unload
+  window.addEventListener('unload', cleanup, { passive: true });
+
+  // Start
+  init();
 })();
