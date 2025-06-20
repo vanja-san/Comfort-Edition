@@ -8,14 +8,14 @@
 /* Some */
 @import url('some/removed.css');
 @import url('some/urlbar.css');
+@import url('some/background.css');
 /* Components */
-@import url('components/header/control-buttons.css');
-@import url('components/header/right-panel.css');
-@import url('components/header/titlebar.css');
-@import url('components/header/top-menu.css');
+@import url('components/titlebar/control-btns.css');
+@import url('components/titlebar/right-side.css');
+@import url('components/titlebar/titlebar.css');
+@import url('components/titlebar/left-side.css');
 @import url('components/sidebar/menu.css');
-@import url('components/sidebar/dd-menu.css');
-@import url('components/sidebar/b-menu.css');
+@import url('components/sidebar/menu-b.css');
 /* Layouts */
 @import url('layouts/library/list-games.css');
 @import url('layouts/library/others.css');

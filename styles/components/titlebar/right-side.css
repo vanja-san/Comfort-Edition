@@ -1,4 +1,4 @@
-/* Right Side Buttons */
+/* Titlebar Right Side */
 ._2Szzh5sKyGgnLUR870zbDE,
 ._3yD46y5pd3zOGR7CzKs0mC {
   height: 28px !important;
@@ -8,26 +8,38 @@
 }
 ._3cykd-VfN_xBxf3Qxriccm {
   margin: auto 0;
-  margin-right: 9px;
+  margin-right: 20px;
   height: 41px;
 }
 .RtSv39ZoBOySnb8XQ5hJf._9YK5IY219Pm_F53DAxyYp,
 .RtSv39ZoBOySnb8XQ5hJf._3qhGkQ5qLVNQQ-J2-uPoHt,
-._5wILZhsLODVwGfcJ0hKmJ, ._5wILZhsLODVwGfcJ0hKmJ:hover,
-.RtSv39ZoBOySnb8XQ5hJf._9YK5IY219Pm_F53DAxyYp:not(._1QQWjaXmb1eTHZpeIhQA_5):hover,
-.RtSv39ZoBOySnb8XQ5hJf._3qhGkQ5qLVNQQ-J2-uPoHt:not(._1QQWjaXmb1eTHZpeIhQA_5):hover,
+._5wILZhsLODVwGfcJ0hKmJ,
+._5wILZhsLODVwGfcJ0hKmJ:hover,
+.RtSv39ZoBOySnb8XQ5hJf._9YK5IY219Pm_F53DAxyYp:not(
+    ._1QQWjaXmb1eTHZpeIhQA_5
+  ):hover,
+.RtSv39ZoBOySnb8XQ5hJf._3qhGkQ5qLVNQQ-J2-uPoHt:not(
+    ._1QQWjaXmb1eTHZpeIhQA_5
+  ):hover,
 ._3LKQ3S_yqrebeNLF6aeiog:hover {
   background-color: unset;
 }
 /* tiny profile button */
 ._3yD46y5pd3zOGR7CzKs0mC {
+  background: unset;
   border-radius: 2px;
   padding-right: unset;
   font-size: 0 !important;
 }
+._3yD46y5pd3zOGR7CzKs0mC:hover {
+  background: unset;
+}
 /* tiny profile button: Avatar */
+._3h-QRJGxnVOIExtHD1R0f2 {
+  border: unset;
+}
 ._3h-QRJGxnVOIExtHD1R0f2.avatar {
-  border-radius: 3px;
+  border-radius: 50px;
   box-shadow: none;
 }
 ._3yD46y5pd3zOGR7CzKs0mC ._3x51wbt5DYyWC8JKwQ51ir {
@@ -39,11 +51,11 @@
 }
 /* tiny profile button: Status */
 ._3xUpb5DWXPFNcHHIcv-9pe.avatarStatus.right {
-  top: 18px;
-  left: 18px;
+  top: 16px;
+  left: 16px;
   width: 8px;
   height: 8px;
-  border: 1px solid #fff;
+  border: 2px solid #171d25;
   border-radius: 100%;
 }
 ._3yD46y5pd3zOGR7CzKs0mC.ingame {

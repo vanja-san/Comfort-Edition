@@ -1,4 +1,4 @@
-// scripts/features/library/list-games.js
+// scripts/features/library/tlg.js - Toggle List Games
 (() => {
   "use strict";
 
