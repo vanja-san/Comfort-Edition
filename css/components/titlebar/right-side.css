@@ -27,8 +27,7 @@
 /* tiny profile button */
 ._3yD46y5pd3zOGR7CzKs0mC {
   background: unset;
-  border-radius: 2px;
-  padding-right: unset;
+  padding: unset;
   font-size: 0 !important;
 }
 ._3yD46y5pd3zOGR7CzKs0mC:hover {
@@ -59,6 +58,7 @@
   border-radius: 100%;
 }
 ._3yD46y5pd3zOGR7CzKs0mC.ingame {
+  background: unset;
   padding: 0;
 }
 /* Big Picture Button */
