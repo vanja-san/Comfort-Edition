@@ -56,6 +56,9 @@
       .custom-news-icon:hover {
         color: #fff;
       }
+      .no-animation {
+        transition: none !important;
+      }
     `;
     document.head.appendChild(style);
   }
@@ -122,14 +125,10 @@
     let isCollapsed = localStorage.getItem(CONFIG.storageKey) === 'true';
     
     function updateState(collapsed, animate = true) {
+      // Добавляем класс no-animation для предотвращения анимации при необходимости
       if (!animate) {
-        animationContainer.style.transition = 'none';
-        wrapper.style.transition = 'none';
-        
-        requestAnimationFrame(() => {
-          animationContainer.style.transition = '';
-          wrapper.style.transition = '';
-        });
+        animationContainer.classList.add('no-animation');
+        wrapper.classList.add('no-animation');
       }
 
       const icon = collapsed ? 'top_panel_open' : 'top_panel_close';
@@ -139,16 +138,24 @@
         toggleBtn.innerHTML = `<span class="material-symbols-rounded">${icon}</span>`;
         toggleBtn.classList.toggle('collapsed', collapsed);
         animationContainer.style.height = height;
+
+        // Удаляем класс no-animation после применения стилей
+        if (!animate) {
+          requestAnimationFrame(() => {
+            animationContainer.classList.remove('no-animation');
+            wrapper.classList.remove('no-animation');
+          });
+        }
       });
 
       localStorage.setItem(CONFIG.storageKey, collapsed);
     }
 
-    // Initial state
+    // Initial state - всегда без анимации
     updateState(isCollapsed, false);
     container.append(toggleBtn);
 
-    // Click handler
+    // Click handler - с анимацией
     toggleBtn.addEventListener('click', () => {
       isCollapsed = !toggleBtn.classList.contains('collapsed');
       updateState(isCollapsed, true);
@@ -158,7 +165,12 @@
     const updateHeight = () => {
       if (!toggleBtn.classList.contains('collapsed')) {
         requestAnimationFrame(() => {
+          // Обновляем высоту без анимации
+          animationContainer.classList.add('no-animation');
           animationContainer.style.height = `${wrapper.offsetHeight}px`;
+          requestAnimationFrame(() => {
+            animationContainer.classList.remove('no-animation');
+          });
         });
       }
     };
