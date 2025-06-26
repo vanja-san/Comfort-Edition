@@ -68,8 +68,6 @@
 .RtSv39ZoBOySnb8XQ5hJf._3L1c8C0o_xXzPy26aoLBFd {
   background-color: unset /* #5c7e10 */;
   color: #31b85e;
-  /* animation: ring 2s infinite;
-  transform-origin: top center; */
 }
 .RtSv39ZoBOySnb8XQ5hJf._3L1c8C0o_xXzPy26aoLBFd:not(._1QQWjaXmb1eTHZpeIhQA_5):hover {
   background-color: unset
@@ -79,37 +77,6 @@
   animation-iteration-count: 12;
   transform-origin: 50% 0%;
 }
-
-/* @keyframes ring {
-  0%,
-  100% {
-    transform: rotate(0deg);
-  }
-  5% {
-    transform: rotate(10deg);
-  }
-  10%,
-  30%,
-  50% {
-    transform: rotate(-10deg);
-  }
-  15%,
-  35%,
-  55% {
-    transform: rotate(10deg);
-  }
-  20%,
-  40% {
-    transform: rotate(-8deg);
-  }
-  25%,
-  45% {
-    transform: rotate(8deg);
-  }
-  60% {
-    transform: rotate(0deg);
-  }
-} */
 /* tiny profile button */
 ._3yD46y5pd3zOGR7CzKs0mC {
   background: unset;
