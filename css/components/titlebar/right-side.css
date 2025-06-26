@@ -24,6 +24,92 @@
 ._3LKQ3S_yqrebeNLF6aeiog:hover {
   background-color: unset;
 }
+/* News Notification Icon */
+._2Szzh5sKyGgnLUR870zbDE._5wILZhsLODVwGfcJ0hKmJ svg {
+  color: #fff5;
+}
+._5wILZhsLODVwGfcJ0hKmJ._1oEwirQksXfZ-3RWWslbAR {
+  background-color: unset;
+  color: #1999ff;
+}
+._5wILZhsLODVwGfcJ0hKmJ._1oEwirQksXfZ-3RWWslbAR:hover {
+  background-color: unset;
+  color: #1999ff;
+}
+._5wILZhsLODVwGfcJ0hKmJ._1oEwirQksXfZ-3RWWslbAR svg:nth-child(1) {
+  animation: heartbeat 1.3s infinite;
+  transform-origin: center;
+}
+@keyframes heartbeat {
+  0% {
+    transform: scale(1); /* Исходный размер */
+  }
+  14% {
+    transform: scale(1.3); /* Увеличение (удар сердца) */
+  }
+  28% {
+    transform: scale(1); /* Возврат к исходному размеру */
+  }
+  42% {
+    transform: scale(1.3); /* Второй удар */
+  }
+  70% {
+    transform: scale(1); /* Плавное завершение */
+  }
+}
+/* Notifications Icon */
+._2Szzh5sKyGgnLUR870zbDE.RtSv39ZoBOySnb8XQ5hJf._3qhGkQ5qLVNQQ-J2-uPoHt svg {
+  color: #fff5;
+}
+._2Szzh5sKyGgnLUR870zbDE.RtSv39ZoBOySnb8XQ5hJf._3qhGkQ5qLVNQQ-J2-uPoHt:hover svg {
+  color: #fff;
+}
+
+.RtSv39ZoBOySnb8XQ5hJf._3L1c8C0o_xXzPy26aoLBFd {
+  background-color: unset /* #5c7e10 */;
+  color: #31b85e;
+  /* animation: ring 2s infinite;
+  transform-origin: top center; */
+}
+.RtSv39ZoBOySnb8XQ5hJf._3L1c8C0o_xXzPy26aoLBFd:not(._1QQWjaXmb1eTHZpeIhQA_5):hover {
+  background-color: unset
+}
+.RtSv39ZoBOySnb8XQ5hJf._3L1c8C0o_xXzPy26aoLBFd ._34bQcTHo5QKzuujoEyU1tm g, .RtSv39ZoBOySnb8XQ5hJf._3L1c8C0o_xXzPy26aoLBFd._3HTKO4DG_GebIesiMSlG9a ._34bQcTHo5QKzuujoEyU1tm g {
+  animation: _1laPjpHIsrHsEg2pP6rBc8 5s ease-in;
+  animation-iteration-count: 12;
+  transform-origin: 50% 0%;
+}
+
+/* @keyframes ring {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  5% {
+    transform: rotate(10deg);
+  }
+  10%,
+  30%,
+  50% {
+    transform: rotate(-10deg);
+  }
+  15%,
+  35%,
+  55% {
+    transform: rotate(10deg);
+  }
+  20%,
+  40% {
+    transform: rotate(-8deg);
+  }
+  25%,
+  45% {
+    transform: rotate(8deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+} */
 /* tiny profile button */
 ._3yD46y5pd3zOGR7CzKs0mC {
   background: unset;
