@@ -28,9 +28,13 @@
 ._2Szzh5sKyGgnLUR870zbDE._5wILZhsLODVwGfcJ0hKmJ svg {
   color: #fff5;
 }
+._5wILZhsLODVwGfcJ0hKmJ._1oEwirQksXfZ-3RWWslbAR svg {
+  background-color: unset;
+  color: #1999ff !important;
+}
 ._5wILZhsLODVwGfcJ0hKmJ._1oEwirQksXfZ-3RWWslbAR {
   background-color: unset;
-  color: #1999ff;
+  color: unset;
 }
 ._5wILZhsLODVwGfcJ0hKmJ._1oEwirQksXfZ-3RWWslbAR:hover {
   background-color: unset;
@@ -45,13 +49,13 @@
     transform: scale(1); /* Исходный размер */
   }
   14% {
-    transform: scale(1.3); /* Увеличение (удар сердца) */
+    transform: scale(1.2); /* Увеличение (удар сердца) */
   }
   28% {
     transform: scale(1); /* Возврат к исходному размеру */
   }
   42% {
-    transform: scale(1.3); /* Второй удар */
+    transform: scale(1.2); /* Второй удар */
   }
   70% {
     transform: scale(1); /* Плавное завершение */
