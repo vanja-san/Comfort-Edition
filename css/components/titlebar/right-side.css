@@ -65,7 +65,8 @@
 ._2Szzh5sKyGgnLUR870zbDE.RtSv39ZoBOySnb8XQ5hJf._3qhGkQ5qLVNQQ-J2-uPoHt svg {
   color: #fff5;
 }
-._2Szzh5sKyGgnLUR870zbDE.RtSv39ZoBOySnb8XQ5hJf._3qhGkQ5qLVNQQ-J2-uPoHt:hover svg {
+._2Szzh5sKyGgnLUR870zbDE.RtSv39ZoBOySnb8XQ5hJf._3qhGkQ5qLVNQQ-J2-uPoHt:hover
+  svg {
   color: #fff;
 }
 
@@ -73,10 +74,15 @@
   background-color: unset /* #5c7e10 */;
   color: #31b85e;
 }
-.RtSv39ZoBOySnb8XQ5hJf._3L1c8C0o_xXzPy26aoLBFd:not(._1QQWjaXmb1eTHZpeIhQA_5):hover {
-  background-color: unset
+.RtSv39ZoBOySnb8XQ5hJf._3L1c8C0o_xXzPy26aoLBFd:not(
+    ._1QQWjaXmb1eTHZpeIhQA_5
+  ):hover {
+  background-color: unset;
 }
-.RtSv39ZoBOySnb8XQ5hJf._3L1c8C0o_xXzPy26aoLBFd ._34bQcTHo5QKzuujoEyU1tm g, .RtSv39ZoBOySnb8XQ5hJf._3L1c8C0o_xXzPy26aoLBFd._3HTKO4DG_GebIesiMSlG9a ._34bQcTHo5QKzuujoEyU1tm g {
+.RtSv39ZoBOySnb8XQ5hJf._3L1c8C0o_xXzPy26aoLBFd ._34bQcTHo5QKzuujoEyU1tm g,
+.RtSv39ZoBOySnb8XQ5hJf._3L1c8C0o_xXzPy26aoLBFd._3HTKO4DG_GebIesiMSlG9a
+  ._34bQcTHo5QKzuujoEyU1tm
+  g {
   animation: _1laPjpHIsrHsEg2pP6rBc8 5s ease-in;
   animation-iteration-count: 12;
   transform-origin: 50% 0%;

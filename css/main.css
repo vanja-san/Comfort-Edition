@@ -16,6 +16,7 @@
 @import url('components/titlebar/left-side.css');
 @import url('components/sidebar/menu.css');
 @import url('components/sidebar/menu-b.css');
+@import url('components/sidebar/dropdown-menu.css');
 /* Layouts */
 @import url('layouts/library/list-games.css');
 @import url('layouts/library/others.css');

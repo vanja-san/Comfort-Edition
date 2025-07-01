@@ -1,0 +1,74 @@
+/* Основной контейнер выпадающего меню */
+.PP7LM0Ow1K5qkR8WElLpt {
+  /* background: #fff3; */
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  border: 1px solid #fff1;
+  min-width: 180px !important; /* Немного больше чем было */
+  padding: 4px;
+  width: max-content; /* Добавляем правило для предотвращения обрезания */
+  max-width: 300px; /* Для безопасности добавим максимальную ширину */
+  overflow: visible; /* Убедимся, что контент не выходит за пределы */
+  background-clip: padding-box;
+}
+
+.ContextMenuPopupBody,
+._14wqdluDeDnnEcg3OSLEmd {
+  background: transparent !important; /* Убираем фоновый цвет с родительских элементов */
+}
+
+/* Контейнер содержимого */
+._2EstNjFIIZm_WUSKm5Wt7n {
+  background: transparent !important;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+  padding-right: 4px;
+  border-radius: inherit; /* Наследуем радиус от родителя */
+  overflow: hidden;
+}
+
+/* Элементы меню */
+._1n7Wloe5jZ6fSuvV18NNWI.contextMenuItem {
+  padding: 8px 12px;
+  cursor: pointer;
+  color: #fff8;
+  transition: background-color 0.2s ease;
+  padding: 8px 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Ховер эффект для элементов меню */
+._1n7Wloe5jZ6fSuvV18NNWI.contextMenuItem:hover {
+  background-color: #fff3;
+  color: #fff;
+  border-radius: unset !important;
+}
+
+/* Разделительная линия */
+._21GPYlKBCLsHQpTsHw_RL_ {
+  margin: 4px 0;
+  border: none;
+  border-top: 1px solid #fff1;
+}
+
+/* Анимация появления меню */
+.PP7LM0Ow1K5qkR8WElLpt {
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.PP7LM0Ow1K5qkR8WElLpt.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Дополнительные стили для вложенных элементов */
+._2jXHP0742MyApMUVUM8IFn {
+  position: relative;
+  width: 100%;
+}
