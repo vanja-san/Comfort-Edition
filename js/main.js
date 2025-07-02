@@ -15,6 +15,7 @@ async function initTheme() {
   try {
     await loadScript('js/features/library/tlg.js');
     await loadScript('js/features/library/twn.js');
+    await loadScript('js/features/menu-shift.js');
   } catch (error) {
     console.error('[Millennium] Ошибка загрузки:', error);
   }
