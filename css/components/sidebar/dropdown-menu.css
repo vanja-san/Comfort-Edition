@@ -1,20 +1,19 @@
 /* Основной контейнер выпадающего меню */
 .PP7LM0Ow1K5qkR8WElLpt {
-  /* background: #fff3; */
   border-radius: 6px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   border: 1px solid #fff1;
-  min-width: 180px !important; /* Немного больше чем было */
+  min-width: 180px !important;
   padding: 4px;
-  width: max-content; /* Добавляем правило для предотвращения обрезания */
-  max-width: 300px; /* Для безопасности добавим максимальную ширину */
-  overflow: visible; /* Убедимся, что контент не выходит за пределы */
+  width: max-content;
+  max-width: 300px;
+  overflow: visible;
   background-clip: padding-box;
 }
 
 .ContextMenuPopupBody,
 ._14wqdluDeDnnEcg3OSLEmd {
-  background: transparent !important; /* Убираем фоновый цвет с родительских элементов */
+  background: transparent !important;
 }
 
 /* Контейнер содержимого */
@@ -24,7 +23,6 @@
   flex-direction: column;
   gap: 2px;
   width: 100%;
-  padding-right: 4px;
   border-radius: 4px;
   overflow: hidden;
 }
