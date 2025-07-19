@@ -54,15 +54,17 @@
         cursor: pointer;
         position: absolute;
         background: unset;
-        color: #8b929a;
+        color: #ffffff;
+        opacity: 0.3;
         border: none;
         font-size: 0;
         z-index: 1000;
         top: 10px;
         left: 21px;
+        transition: opacity .2s ease;
       }
       .panel-list-icon:hover {
-        color: #fff;
+        opacity: 1;
       }
       .${CONFIG.hiddenBlock} {
         display: none !important;

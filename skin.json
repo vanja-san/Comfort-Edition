@@ -16,8 +16,8 @@
     "owner": "vanja-san",
     "repo_name": "Comfort-Edition"
   },
-  "header_image": "https://i.imgur.com/image_here.png",
-  "splash_image": "https://i.imgur.com/image_here.png",
+  "header_image": "./_gh/cover.png",
+  "splash_image": "./_gh/cover.png",
   "tags": ["comfort", "steam", "edition", "wip"],
   "UseDefaultPatches": true
 }

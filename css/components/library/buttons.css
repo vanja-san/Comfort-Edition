@@ -1,0 +1,48 @@
+/* Button Add Panel */
+._3SkuN_ykQuWGF94fclHdhJ ._1PhK8scyztOxjJwWUpkiLJ {
+  display: none;
+}
+._3SkuN_ykQuWGF94fclHdhJ {
+  position: relative;
+  justify-content: flex-end;
+  margin: 0;
+}
+.DesktopUI ._3SkuN_ykQuWGF94fclHdhJ {
+  margin: 0;
+}
+._3SkuN_ykQuWGF94fclHdhJ ._2aw5aUUo3lrK6wxJb4_ms5 {
+  background: #fff1;
+  border: 1px solid #fff1;
+  border-radius: 4px;
+}
+/* Arrows */
+._23SnllqT_AqZ1C_QHcNQ4Z ._29NTOneobxPjUfxHUk9N8Y {
+  margin: 0;
+}
+._14b-hQsLwSwYcELtknxCUX,
+._3IIEUTw03Vm3Mk54jlnUaT,
+._23SnllqT_AqZ1C_QHcNQ4Z ._29NTOneobxPjUfxHUk9N8Y ._3uMa3icVa3JTCGQKPeUikO,
+._23SnllqT_AqZ1C_QHcNQ4Z ._29NTOneobxPjUfxHUk9N8Y ._2kWWyBO7w_F76NB8sBw86c {
+  background: #fff1;
+  margin: 0 0 0 5px !important;
+  padding: 2px;
+  border: 1px solid #fff1;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.SVGIcon_Button.SVGIcon_DoubleArrow {
+  width: 14px;
+  height: 14px;
+}
+/* Left Arrow */
+._3uMa3icVa3JTCGQKPeUikO .SVGIcon_DoubleArrow, ._14b-hQsLwSwYcELtknxCUX .SVGIcon_DoubleArrow{
+  position: relative;
+  left: 1.889px;
+}
+/* Right Arrow */
+._2kWWyBO7w_F76NB8sBw86c .SVGIcon_DoubleArrow, ._3IIEUTw03Vm3Mk54jlnUaT .SVGIcon_DoubleArrow {
+  position: relative;
+  right: 1.889px;
+}

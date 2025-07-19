@@ -39,7 +39,8 @@
         top: 10px;
         left: 48px;
         z-index: 1001;
-        color: #8b929a;
+        color: #ffffff;
+        opacity: 0.3;
         border: none;
         width: 24px;
         height: 24px;
@@ -48,13 +49,14 @@
         justify-content: center;
         cursor: pointer;
         font-size: 0;
+        transition: opacity .2s ease;
       }
       .header-animation-container {
         overflow: hidden !important;
         transition: height ${CONFIG.timing.transition}ms ${CONFIG.timing.easing} !important;
       }
       .custom-news-icon:hover {
-        color: #fff;
+        opacity: 1;
       }
       .no-animation {
         transition: none !important;
