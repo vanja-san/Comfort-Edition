@@ -1,0 +1,133 @@
+@use "../0-Base/mixins" as *;
+
+._1_yS5UP7el0aN4vntx3dx {
+  position: absolute;
+  left: 0;
+  bottom: 3px;
+  width: 48px;
+}
+
+._3vCzSrrXZzZjVJFZNg9SGu {
+  flex: 0 0 auto;
+  flex-direction: column;
+  @include reset-background;
+  @include reset-padding;
+  box-shadow: unset;
+}
+
+._2foCkpRXhqq0UGVE50BWqj ._3OhUxFVlQYr9W5ThxstR8k,
+._1TdaAqMFadi0UTqilrkelR ._3OhUxFVlQYr9W5ThxstR8k {
+  font-size: 0;
+}
+
+._2foCkpRXhqq0UGVE50BWqj,
+._1TdaAqMFadi0UTqilrkelR,
+._2EQ7ghgqIdjKv9jsQC0Zq9 {
+  padding: 14.5px;
+  gap: unset;
+}
+
+._2foCkpRXhqq0UGVE50BWqj ._1KrJ3sFAqPBN9mfpaNTU5F,
+.ip-YZhijAMZcuRoXBGiye ._1KrJ3sFAqPBN9mfpaNTU5F,
+._1TdaAqMFadi0UTqilrkelR ._1KrJ3sFAqPBN9mfpaNTU5F {
+  height: 18px;
+  width: 18px;
+}
+
+.ip-YZhijAMZcuRoXBGiye {
+  gap: unset;
+  max-width: unset;
+  padding: 0;
+  ._3wJnTtcTLEp0R7eQj_mK8Y {
+    font-size: 0px;
+  }
+  ._1KrJ3sFAqPBN9mfpaNTU5F {
+    margin: 0 auto;
+    margin-top: -1px;
+  }
+  ._1sCy-pm412Smb0wJx0W-4 {
+    font-size: 0;
+  }
+}
+
+._2VtAqT03BpBsVdmxwptn9D {
+  gap: 0;
+  width: 28px;
+  display: block;
+  ._1KrJ3sFAqPBN9mfpaNTU5F {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    box-shadow: none;
+    margin: 0 auto;
+    cursor: pointer;
+  }
+  ._21vPQjHoo0uwud5lfCD_x- {
+    background: none;
+  }
+}
+
+._2_FomluqqgQ2Hx8ON3AVep {
+  position: relative;
+  gap: unset;
+  width: 28px;
+  ._1sCy-pm412Smb0wJx0W-4 {
+    font-size: 0;
+  }
+  .wi0pDywRgOCxhG7OqQNaA {
+    height: 4px;
+    margin: 0 auto;
+  }
+}
+
+._1KrJ3sFAqPBN9mfpaNTU5F {
+  & > svg {
+    @include hidden-element;
+  }
+  &::before {
+    content: "download";
+    font-family: "Material Symbols Rounded";
+    font-size: 24px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #b0bac7;
+  }
+  &:hover {
+    &::before {
+      color: #ffffff;
+    }
+  }
+}
+
+._24_AuLm54JVe1Zc0AApCDR {
+  border-radius: 2px;
+}
+
+._2EQ7ghgqIdjKv9jsQC0Zq9 {
+  & > div {
+    & > div {
+      & > .tool-tip-source {
+        &.Focusable {
+          & > div {
+            & > ._1R9r2OBCxAmtuUVrgBEUBw {
+              &._2E7G8grj_-tgxXbTXs1t2E {
+                position: absolute;
+                margin-left: 3px;
+                width: 24px;
+                height: 24px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

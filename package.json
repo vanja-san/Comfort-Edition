@@ -1,0 +1,14 @@
+{
+  "name": "comfort-edition",
+  "version": "1.0.0",
+  "scripts": {
+    "watch:library": "sass --watch _src/scss/Library/main.scss:libraryroot.custom.css --no-source-map",
+    "build:library": "sass _src/scss/Library/main.scss:libraryroot.custom.css --no-source-map",
+    "watch:friends": "sass --watch _src/scss/Friends/main.scss:friends.custom.css --no-source-map",
+    "build:friends": "sass _src/scss/Friends/main.scss:friends.custom.css --no-source-map",
+    "watch:all": "npm-run-all --parallel watch:library watch:friends"
+  },
+  "dependencies": {
+    "sass": "^1.90.0"
+  }
+}

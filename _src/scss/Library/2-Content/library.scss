@@ -1,0 +1,50 @@
+@use '../0-Base/colors' as *;
+@use '../0-Base/mixins' as *;
+
+._2AUVZlzQq67qe3yhLZsPPB {
+  transform: unset;
+}
+
+._3Sb2o_mQ30IDRh0C72QUUu { /* Container  */
+  padding-top: 0;
+}
+
+/* Add New Item button */
+.DesktopUI {
+  ._3SkuN_ykQuWGF94fclHdhJ {
+    position: fixed !important;
+    margin: unset;
+    top: 46px;
+    right: 10px;
+    z-index: 999;
+
+    ._1PhK8scyztOxjJwWUpkiLJ {
+      display: none;
+    }
+    ._2aw5aUUo3lrK6wxJb4_ms5 {
+      background: $bg-1;
+      opacity: 1;
+      border-radius: 4px;
+      height: 32px;
+      padding: 0 8px;
+    }
+  }
+}
+
+._2Z9gJ6Pd7eZn-kfODcXJuR{
+  > ._2tC_c87MH67xQM7Y0pVyXm {
+    background-color: $bg-1;
+    margin-top: 10px;
+    border-radius: 4px;
+
+    > div {
+      > ._1VMQWnw-9FBp-MVXUbWfS_ {
+        height: auto;
+      }
+    }
+  }
+}
+
+._2Nq6ov7A1hGcHXVOXNt_OE {
+  margin-top: 60px;
+}

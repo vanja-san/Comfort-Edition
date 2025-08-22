@@ -1,13 +1,4 @@
 {
-  "Steam-WebKit": "webkit.css",
-  "Patches": [
-    {
-      "MatchRegexString": ".*",
-      "TargetCss": "css/main.css",
-      "TargetJs": "js/main.js"
-    }
-  ],
-
   "name": "Comfort Edition",
   "author": "vanja-san",
   "description": "(WIP) A touch more comfy! Skin in standard Steam tones, but with a drop of comfort.",
@@ -19,5 +10,7 @@
   "header_image": "./_gh/cover.png",
   "splash_image": "./_gh/cover.png",
   "tags": ["comfort", "steam", "edition", "wip"],
-  "UseDefaultPatches": true
+  "UseDefaultPatches": true,
+
+  "Steam-WebKit": "webkit.css"
 }

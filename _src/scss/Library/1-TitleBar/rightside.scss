@@ -1,0 +1,154 @@
+@use '../0-Base/variables' as *;
+@use '../0-Base/mixins' as *;
+
+// Общие стили для кнопок
+._2Szzh5sKyGgnLUR870zbDE,
+._3yD46y5pd3zOGR7CzKs0mC {
+  height: 32px !important;
+  width: 32px !important;
+  @include reset-padding;
+  max-height: none;
+}
+
+// Контейнер справа
+._3cykd-VfN_xBxf3Qxriccm {
+  margin: 0;
+  height: 100%;
+
+  ._3LKQ3S_yqrebeNLF6aeiog { /* BigPicture Icons */
+    margin-right: 40px;
+  }
+}
+
+// Сброс фона (объединенный)
+%reset-bg-selectors,
+.RtSv39ZoBOySnb8XQ5hJf._9YK5IY219Pm_F53DAxyYp,
+.RtSv39ZoBOySnb8XQ5hJf._3qhGkQ5qLVNQQ-J2-uPoHt,
+._5wILZhsLODVwGfcJ0hKmJ,
+._5wILZhsLODVwGfcJ0hKmJ:hover,
+._3LKQ3S_yqrebeNLF6aeiog:hover {
+  @include reset-background;
+}
+
+// Основные стили кнопок
+._2Szzh5sKyGgnLUR870zbDE {
+  // Стандартное состояние
+  &._5wILZhsLODVwGfcJ0hKmJ svg {
+    color: $color-white-transparent;
+  }
+
+  // Состояние при наведении
+  &.RtSv39ZoBOySnb8XQ5hJf {
+    &._3qhGkQ5qLVNQQ-J2-uPoHt:hover svg {
+      color: #fff;
+    }
+  }
+}
+
+._5wILZhsLODVwGfcJ0hKmJ {
+  // Специальный модификатор
+  &._1oEwirQksXfZ-3RWWslbAR {
+    @include reset-background;
+    color: unset;
+    
+    svg {
+      @include reset-background;
+      color: $color-blue !important;
+      
+      &:nth-child(1) {
+        animation: heartbeat 1.3s infinite;
+        transform-origin: center;
+      }
+    }
+    
+    &:hover {
+      @include reset-background;
+      color: $color-blue;
+    }
+  }
+}
+
+// Анимация пульсации
+@keyframes heartbeat {
+  0%, 28%, 70% { transform: scale(1); }
+  14%, 42% { transform: scale(1.2); }
+}
+
+// Стили для кнопок состояния
+.RtSv39ZoBOySnb8XQ5hJf {
+  // Онлайн-статус
+  &._3L1c8C0o_xXzPy26aoLBFd {
+    @include reset-background;
+    color: $color-green;
+
+    &:not(._1QQWjaXmb1eTHZpeIhQA_5):hover,
+    &._9YK5IY219Pm_F53DAxyYp:not(._1QQWjaXmb1eTHZpeIhQA_5):hover,
+    &._3qhGkQ5qLVNQQ-J2-uPoHt:not(._1QQWjaXmb1eTHZpeIhQA_5):hover {
+      @include reset-background;
+    }
+  }
+
+  // Иконка уведомлений
+  &._3qhGkQ5qLVNQQ-J2-uPoHt svg {
+    color: $color-white-transparent;
+  }
+}
+
+// Анимация статуса (оптимизированный селектор)
+[class*="RtSv39ZoBOySnb8XQ5hJf"]._3L1c8C0o_xXzPy26aoLBFd ._34bQcTHo5QKzuujoEyU1tm g {
+  animation: _1laPjpHIsrHsEg2pP6rBc8 5s ease-in 12;
+  transform-origin: 50% 0%;
+}
+
+// Стили аватара
+._3yD46y5pd3zOGR7CzKs0mC {
+  @include reset-background;
+  @include reset-padding;
+  font-size: 0 !important;
+  margin: 2px 0 0 0;
+  
+  &:hover {
+    @include reset-background;
+  }
+  
+  ._3x51wbt5DYyWC8JKwQ51ir {
+    display: none;
+  }
+  
+  // Модификаторы статуса
+  &.online {
+    @include reset-padding;
+    gap: 0;
+  }
+  
+  &.ingame {
+    @include reset-background;
+    @include reset-padding;
+  }
+}
+
+// Стили рамки аватара
+._3h-QRJGxnVOIExtHD1R0f2 {
+  border: unset;
+  
+  &.avatar {
+    border-radius: 50px;
+    box-shadow: none;
+  }
+}
+
+// Индикатор статуса
+._3xUpb5DWXPFNcHHIcv-9pe.avatarStatus.right {
+  top: 16px;
+  left: 16px;
+  width: 8px;
+  height: 8px;
+  border: 2px solid $color-dark;
+  border-radius: 100%;
+}
+
+// Позиционирование элементов
+._3LKQ3S_yqrebeNLF6aeiog ._34bQcTHo5QKzuujoEyU1tm {
+  top: auto;
+  right: auto;
+}

@@ -1,0 +1,207 @@
+// listgames.scss
+@use "sass:color";
+@use "../0-Base/colors" as *;
+@use "../0-Base/mixins" as *;
+
+/* Filter Window  */
+._20QAC4WMXm8qFE8waUT5oo .vCCmYvn9yQ_V8CpKupllU ._1dgAMymUAUYzUcZjUjOFm7 .Woh0kBQCmatzC1daBX9i6 {
+  z-index: 9999;
+}
+
+._9sPoVBFyE_vE87mnZJ5aB {
+  border-right: 1px solid $bg-1;
+}
+
+._1ijTaXJJA5YWl_fW2IxcaT {
+  margin-top: 2px;
+  width: 260px !important;
+  overflow: hidden;
+
+  > div:nth-child(1) > div {
+    &:hover::-webkit-scrollbar {
+      width: 12px !important;
+    }
+  }
+}
+
+._276E6ijBpjMA2_iTxNhhjc._2g5K_hJWc7jVo81zuejhk2 {
+  display: none !important;
+}
+._9sPoVBFyE_vE87mnZJ5aB {
+  width: 260px !important;
+
+  ._3x1HklzyDs4TEjACrRO2tB {
+    border-radius: 4px 0 0 0;
+  }
+}
+._2TKEazUUS3TlniZfpc8OOe {
+  /* Library & Collections buttons */
+  @include reset-position;
+  top: 46px;
+  left: 645px;
+  z-index: 999;
+  transition: left 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  ._3AhYljPF4e4E8LaBt-FoY0 {
+    width: 98px;
+
+    ._1ooROmAgkhoBH_o65yl9dJ {
+      @include hidden-element;
+    }
+
+    ._3O48LaKWcabKx07xdrt1TH {
+      margin: 0 auto;
+    }
+  }
+}
+._1ZS_xta5HMXzR8JgxDH6n7 {
+  /* DropDown Button */
+  display: flex;
+  @include reset-position;
+  top: 46px;
+  left: 321px;
+  width: 320px;
+  height: 32px;
+  z-index: 999;
+  overflow: hidden;
+  transition: left 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  ._2WgQEFvIzJw_SHNGbjtRFU {
+    order: 2;
+  }
+
+  ._36r2az6roul_Oej7D4BMI6 {
+    order: 1;
+    margin-left: 4px;
+
+    ._3mzKdQXht__YHo6PX1LmB6 {
+      @include icon-button;
+      margin: 0 4px 0 0;
+
+      &._1QFFkxM5hw-43miIiylbwq {
+        &::before {
+          color: color.scale($accent-0);
+          background-color: $bg-bh;
+          border-radius: 4px;
+          font-variation-settings: 'FILL' 1;
+        }
+      }
+
+      &::before {
+        color: $text-1;
+        font-family: 'Material Symbols Rounded';
+        font-size: 16pt;
+        font-variation-settings: 'wght' 320;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+      }
+
+      &:nth-child(1):before {
+        content: 'schedule';
+      }
+      &:nth-child(2):before {
+        content: 'play_circle';
+      }
+
+      .SVGIcon_Button {
+        @include hidden-element;
+      }
+    }
+  }
+}
+/* Search Bar  */
+._20QAC4WMXm8qFE8waUT5oo {
+  margin: 14px;
+}
+
+.custom-collapsed {
+  width: 0 !important;
+  min-width: 0 !important;
+  @include transition-all;
+
+  ::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  ._9sPoVBFyE_vE87mnZJ5aB {
+    border: unset;
+  }
+
+  ._1ijTaXJJA5YWl_fW2IxcaT {
+    width: 0 !important;
+  }
+
+  ._2TKEazUUS3TlniZfpc8OOe {
+    /* Library & Collections buttons */
+    left: 385px;
+  }
+  ._1ZS_xta5HMXzR8JgxDH6n7 {
+    /* DropDown Button */
+    left: 61px;
+  }
+}
+/* Tooltip Games Name */
+._2_lmTz0tA4NOSle5WaO1PZ {
+  @include hidden-element;
+}
+
+// Hide scrollbar on parent hover
+._9sPoVBFyE_vE87mnZJ5aB:hover {
+  ._1ijTaXJJA5YWl_fW2IxcaT > div:nth-child(1) > div {
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+  }
+}
+
+.custom-expanded-content {
+  width: 100% !important;
+  @include transition-all;
+}
+
+.no-transition,
+.no-transition * {
+  @include transition-all;
+}
+
+.panel-list-icon {
+  @include icon-button;
+
+  > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    font-size: 22px;
+    font-variation-settings: 'wght' 320;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &:hover {
+    color: color.scale($text-1, $lightness: 25%);
+  }
+}
+
+.hidden-block {
+  @include hidden-element;
+}
+
+body.steam-panel-initializing {
+  ._9sPoVBFyE_vE87mnZJ5aB,
+  ._1ijTaXJJA5YWl_fW2IxcaT {
+    @include transition-all;
+  }
+}
+
+._1rDh5rXSFZJOqCa4UpnI4z {
+  @include transition-all;
+}
+
+._9sPoVBFyE_vE87mnZJ5aB,
+._1ijTaXJJA5YWl_fW2IxcaT {
+  @include transition-all;
+}

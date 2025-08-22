@@ -1,0 +1,30 @@
+{
+  "statusbarCommands.alignment": "Left",
+  "statusbarCommands.commands": [
+    {
+      "command": "workbench.action.terminal.sendSequence",
+      "args": [{
+        "text": "npm run watch:library\u000D"
+      }],
+      "statusBarText": "$(code) Watch (Library)",
+      "tooltipText": "Автосборка scss файлов для Library",
+      "color": "lightblue"
+    },
+    {
+      "command": "workbench.action.terminal.sendSequence",
+      "args": [{
+        "text": "npm run watch:friends\u000D"
+      }],
+      "statusBarText": "$(code) Watch (Friends)",
+      "tooltipText": "Автосборка scss файлов для Friends",
+      "color": "lightblue"
+    }
+  ],
+    // Recommended if you don't rely on @import
+    "somesass.scss.completion.suggestFromUseOnly": true,
+    "somesass.sass.completion.suggestFromUseOnly": true,
+    // Optional, if you get suggestions from the current document
+    // after namespace.$ (you don't need to type the $ for
+    // narrowing down suggestions)
+    "editor.wordBasedSuggestions": "off"
+}

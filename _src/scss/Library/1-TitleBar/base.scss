@@ -1,0 +1,11 @@
+@use "../0-Base/mixins" as *;
+
+._3Z7VQ1IMk4E3HsHvrkLNgo,
+._39oUCO1OuizVPwcnnv88no {
+  box-shadow: none;
+  height: 32px;
+  @include reset-position;
+  top: 0;
+  left: 0;
+  right: 0;
+}

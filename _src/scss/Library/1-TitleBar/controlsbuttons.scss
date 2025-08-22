@@ -1,0 +1,18 @@
+@use "../0-Base/mixins" as *;
+
+.title-area {
+  top: 0;
+  right: 0;
+  min-height: 24px;
+}
+
+.DesktopUI .title-area-icon,
+.friendsui-container .title-area-icon {
+  width: 44px;
+  height: 32px;
+}
+
+.DesktopUI .title-area-icon:hover,
+.friendsui-container .title-area-icon:hover {
+  @include hover-effect;
+}
