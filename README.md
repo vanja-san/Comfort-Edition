@@ -4,7 +4,7 @@
 </p><br>
 
 ## Installation
-Install [Millennium](https://steambrew.app/), extract Comfort-Edition folder to `.../Steam/steamui/skins`.
+Install [**Millennium**](https://steambrew.app/), download [**this archive**](https://github.com/vanja-san/Comfort-Edition/releases/download/latest/Comfort-Edition.7z) and extract *Comfort-Edition* folder to `.../Steam/steamui/skins`.
 
 <br>
 
