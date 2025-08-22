@@ -22,13 +22,14 @@ Install [Millennium](https://steambrew.app/), extract Comfort-Edition folder to 
   (v0.7)
   ![v0.7.7](https://github.com/user-attachments/assets/128f4b88-c6cd-4766-8049-30d3ed28b46c)
 
-  # Toggle Left GamesList (*Test*)
+  (v0.8)
+  ![изображение](https://github.com/user-attachments/assets/ad373566-c42e-48bf-baec-18bae0abbd4b)
+
+  # FIRST TEST - Toggle Left GamesList
   https://github.com/user-attachments/assets/e964de43-1f01-4321-8670-e2717dbf4c48
 </details>
 
-v0.8
-![изображение](https://github.com/user-attachments/assets/ad373566-c42e-48bf-baec-18bae0abbd4b)
-
+<img width="1010" height="716" alt="изображение" src="https://github.com/user-attachments/assets/857b207c-ebd2-4d79-afb6-3ee8c27076fb" />
 
   ## Some Features
 https://github.com/user-attachments/assets/33726148-19fb-44c0-9bb9-e0c4d5317975
