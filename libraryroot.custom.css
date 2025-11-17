@@ -469,7 +469,10 @@ body {
   background-color: oklch(23% 0.01793 255deg);
 }
 
-._3Z7VQ1IMk4E3HsHvrkLNgo {
+._3Z7VQ1IMk4E3HsHvrkLNgo,
+._2gSXCB6PbOlMxslr8hm6dm,
+.u1xD3KJEgksF_J_5TLZzO,
+._2sNr7PFYcJZWNkEMCDVVPR {
   background: unset;
 }
 
@@ -494,10 +497,6 @@ body {
 ._17uEBe5Ri8TMsnfELvs8-N {
   border-bottom: 1px solid;
   border-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.3137254902), rgba(255, 255, 255, 0)) 47% 0%;
-}
-
-._2gSXCB6PbOlMxslr8hm6dm {
-  background: transparent;
 }
 
 ._23SnllqT_AqZ1C_QHcNQ4Z ._1PhK8scyztOxjJwWUpkiLJ {
@@ -539,6 +538,14 @@ body {
 
 .WYgDg9NyCcMIVuMyZ_NBC {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1019607843), 0 1px 1px 0 rgba(0, 0, 0, 0.1019607843), 0 2px 2px 0 rgba(0, 0, 0, 0.1019607843), 0 4px 4px 0 rgba(0, 0, 0, 0.1019607843), 0 8px 8px 0 rgba(0, 0, 0, 0.1019607843), 0 16px 16px 0 rgba(0, 0, 0, 0.1019607843);
+}
+
+div.ModalPosition_TopBar {
+  background: unset;
+}
+
+.DialogContent {
+  border-radius: 6px;
 }
 
 /* Filter Window  */
@@ -624,10 +631,12 @@ body {
   color: oklch(72% 0.01536 254deg);
   border: none;
   border-radius: 4px;
-  margin: 0 4px 0 0;
 }
 ._1ZS_xta5HMXzR8JgxDH6n7 ._36r2az6roul_Oej7D4BMI6 ._3mzKdQXht__YHo6PX1LmB6:hover {
   background-color: oklch(37% 0.01228 273deg);
+}
+._1ZS_xta5HMXzR8JgxDH6n7 ._36r2az6roul_Oej7D4BMI6 ._3mzKdQXht__YHo6PX1LmB6 {
+  margin: 0 4px 0 0;
 }
 ._1ZS_xta5HMXzR8JgxDH6n7 ._36r2az6roul_Oej7D4BMI6 ._3mzKdQXht__YHo6PX1LmB6._1QFFkxM5hw-43miIiylbwq::before {
   color: oklch(64% 0.13651 258deg);
@@ -845,6 +854,15 @@ div._1_yS5UP7el0aN4vntx3dx > div:nth-child(1) {
   padding-top: 0;
 }
 
+.DesktopUI ._2tC_c87MH67xQM7Y0pVyXm > .V7RuDNUxhxoBRaiGWbk3B {
+  padding: 10px;
+  padding-bottom: 0;
+}
+
+._23SnllqT_AqZ1C_QHcNQ4Z ._1PhK8scyztOxjJwWUpkiLJ {
+  background: unset;
+}
+
 /* Add New Item button */
 .DesktopUI ._3SkuN_ykQuWGF94fclHdhJ {
   position: fixed !important;
@@ -873,7 +891,7 @@ div._1_yS5UP7el0aN4vntx3dx > div:nth-child(1) {
   height: auto;
 }
 
-._2Nq6ov7A1hGcHXVOXNt_OE {
+._3xRRJfD2xy95i9NhJxLTp0.LibraryDisplaySizeMedium ._2Nq6ov7A1hGcHXVOXNt_OE, ._3xRRJfD2xy95i9NhJxLTp0.LibraryDisplaySizeSmall ._2Nq6ov7A1hGcHXVOXNt_OE, ._3xRRJfD2xy95i9NhJxLTp0.LibraryDisplaySizeLarge ._2Nq6ov7A1hGcHXVOXNt_OE {
   margin-top: 60px;
 }
 

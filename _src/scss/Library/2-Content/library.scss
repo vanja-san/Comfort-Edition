@@ -9,6 +9,14 @@
   padding-top: 0;
 }
 
+.DesktopUI ._2tC_c87MH67xQM7Y0pVyXm > .V7RuDNUxhxoBRaiGWbk3B {
+  padding: 10px;
+  padding-bottom: 0;
+}
+._23SnllqT_AqZ1C_QHcNQ4Z ._1PhK8scyztOxjJwWUpkiLJ {
+  background: unset;
+}
+
 /* Add New Item button */
 .DesktopUI {
   ._3SkuN_ykQuWGF94fclHdhJ {
@@ -45,6 +53,12 @@
   }
 }
 
-._2Nq6ov7A1hGcHXVOXNt_OE {
-  margin-top: 60px;
+._3xRRJfD2xy95i9NhJxLTp0 {
+  &.LibraryDisplaySizeMedium,
+  &.LibraryDisplaySizeSmall,
+  &.LibraryDisplaySizeLarge {
+    ._2Nq6ov7A1hGcHXVOXNt_OE {
+      margin-top: 60px;
+    }
+  }
 }
